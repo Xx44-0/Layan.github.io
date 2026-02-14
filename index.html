@@ -1,156 +1,223 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layan | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700&family=Noto+Serif+Arabic:wght@300;500&display=swap" rel="stylesheet">
-    <style>
-        :root { --navy: #1a2a6c; --text: #333; --light-gray: #f8f9fa; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layan Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+  body { color:#0D1B2A; background:#f5f3ef; line-height:1.6; }
 
-        body { 
-            font-family: 'Bodoni Moda', 'Noto Serif Arabic', serif; 
-            margin: 0; color: var(--text); background: #fff; line-height: 1.6;
-            overflow-x: hidden;
-        }
+  /* Animated gradient background */
+  header {
+    color:#0D1B2A;
+    padding:80px 20px;
+    text-align:center;
+    background: linear-gradient(-45deg, #f5f3ef, #a2d5f2, #8ac6d1, #f5f3ef);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+  @keyframes gradientBG {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
 
-        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { 
-            background: none; border: 1px solid #ddd; padding: 5px 12px; 
-            cursor: pointer; font-size: 0.7em; letter-spacing: 1px; transition: 0.3s;
-        }
-        .lang-btn:hover { background: #000; color: #fff; }
+  header h1 { font-size:3.5rem; margin-bottom:10px; }
+  header p { font-size:1.3rem; max-width:600px; margin:0 auto; }
 
-        .header { 
-            height: 50vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; border-bottom: 1px solid #eee;
-        }
-        .header h1 { font-size: 3em; font-weight: 300; letter-spacing: 8px; margin: 0; text-transform: uppercase; }
+  /* Translate button */
+  .translate-btn {
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:#0D1B2A;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+    transition: 0.3s;
+    z-index:10;
+  }
+  .translate-btn:hover { background:#1A2A3A; }
 
-        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
-        .section { margin-bottom: 60px; }
-        .section-title { 
-            font-size: 0.75em; text-transform: uppercase; letter-spacing: 3px; 
-            color: #888; margin-bottom: 25px; display: block; border-bottom: 1px solid #eee; padding-bottom: 5px;
-        }
+  section { padding:60px 20px; max-width:1100px; margin:0 auto; }
+  h2 { font-size:2.2rem; margin-bottom:30px; text-align:center; color:#0D1B2A; }
 
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-        .skill-tag { 
-            background: var(--light-gray); padding: 6px 14px; border-radius: 2px; 
-            font-size: 0.8em; color: #555; border: 1px solid #eee;
-        }
+  .about-me { display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:50px;}
+  .about-me i { font-size:2.5rem; color:#0D1B2A; margin-bottom:15px; }
+  .about-me p { max-width:700px; font-size:1.1rem; }
 
-        .img-small { 
-            width: 100%; max-width: 250px; height: auto; border-radius: 0px; 
-            margin-top: 15px; border: 1px solid #eee; transition: 0.5s;
-        }
+  .info { margin-bottom:50px; text-align:center; }
+  .info h3 { font-size:1.5rem; margin-bottom:10px; color:#0D1B2A; }
+  .info p { font-size:1rem; margin-bottom:5px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+  .skills { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-bottom:50px; }
+  .skill-box { background:white; padding:25px; border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition: transform 0.4s, box-shadow 0.4s; }
+  .skill-box:hover { transform: translateY(-10px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+  .skill-box i { font-size:1.6rem; color:#0D1B2A; margin-bottom:12px; }
+  .skill-box h3 { margin-bottom:12px; font-size:1.3rem; }
 
-        .footer-icons { display: flex; justify-content: center; margin-top: 40px; }
-        .footer-icons a { color: #555; font-size: 1.8em; transition: 0.3s; text-decoration: none; }
-        .footer-icons a:hover { color: var(--navy); transform: scale(1.1); }
+  .projects, .certificates { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; margin-bottom:50px; }
+  .card { background:white; border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15); overflow:hidden; transition: transform 0.4s, box-shadow 0.4s; cursor:pointer; }
+  .card:hover { transform: translateY(-10px) scale(1.03); box-shadow:0 12px 24px rgba(0,0,0,0.25); }
+  .card img { width:100%; height:200px; object-fit:cover; }
+  .card-content { padding:18px; }
+  .card-content h4 { font-size:1.25rem; margin-bottom:10px; color:#0D1B2A; }
+  .card-content p { font-size:1rem; color:#333; }
 
-        .rtl { direction: rtl; text-align: right; }
-        .rtl .lang-switch { right: auto; left: 20px; }
-        .rtl .header h1 { letter-spacing: 0; }
-        [data-lang="ar"] { display: none; }
-    </style>
+  .contact { text-align:center; margin-top:60px; }
+  .contact a { display:inline-block; background:#0D1B2A; color:white; padding:16px 35px; border-radius:50px; font-weight:bold; font-size:1.1rem; transition: 0.3s; }
+  .contact a:hover { background:#1A2A3A; }
+  .icon { margin-right:10px; color:white; }
+
+  /* Fade up animation */
+  .fade-up { opacity:0; transform: translateY(40px); transition: all 0.9s ease; }
+  .fade-up.show { opacity:1; transform: translateY(0); }
+
+  @media(max-width:600px){
+    header h1 { font-size:2.5rem; }
+    header p { font-size:1rem; }
+  }
+</style>
 </head>
 <body>
 
-<div class="lang-switch">
-    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
-</div>
-
-<header class="header reveal">
-    <h1>Layan</h1>
-    <p class="lang-en" style="color:#999; font-size: 0.8em; letter-spacing: 2px; margin-top: 10px;">E-commerce & Logistics Specialist</p>
-    <p class="lang-ar" data-lang="ar" style="color:#999; margin-top: 10px;">متخصصة تجارة إلكترونية ودعم لوجستي</p>
+<header>
+  <button class="translate-btn" onclick="translateSite()">Translate</button>
+  <h1>Layan</h1>
+  <p>تجارة إلكترونية ودعم لوجستي</p>
 </header>
 
-<div class="container">
-    <section class="section reveal">
-        <span class="section-title"><span class="lang-en">The Profile</span><span class="lang-ar" data-lang="ar">التعريف</span></span>
-        <p class="lang-en">E-commerce and Logistics graduate, passionate about digital marketing and store management. Focused on enhancing customer experience and improving operational efficiency.</p>
-        <p class="lang-ar" data-lang="ar">خريجة تخصص تجارة إلكترونية ودعم لوجستي، مهتمة بالتسويق الرقمي وإدارة المتاجر الإلكترونية، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات.</p>
-        <img src="cv-image.jpg" class="img-small" alt="CV Preview">
-    </section>
+<section id="about" class="about-me fade-up">
+  <i class="fas fa-user-circle"></i>
+  <h2>About Me</h2>
+  <p>خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.</p>
+</section>
 
-    <section class="section reveal">
-        <span class="section-title"><span class="lang-en">Competencies</span><span class="lang-ar" data-lang="ar">المهارات</span></span>
-        <div class="skills-container">
-            <span class="skill-tag">Store Management</span>
-            <span class="skill-tag">Digital Marketing</span>
-            <span class="skill-tag">Order Tracking</span>
-            <span class="skill-tag">Data Analysis (Excel)</span>
-            <span class="skill-tag">Logistics Support</span>
-            <span class="skill-tag">Content Creation</span>
-        </div>
-    </section>
+<section class="info fade-up">
+  <h2>التعليم</h2>
+  <p>‏دبلوم تجارة إلكترونية ودعم اللوجستي - جامعة طيبة 2025</p>
+</section>
 
-    <section class="section reveal">
-        <span class="section-title"><span class="lang-en">Portfolio</span><span class="lang-ar" data-lang="ar">الأعمال والشهادات</span></span>
-        <div class="grid">
-            <div class="work-item">
-                <p style="font-size: 0.85em; margin: 0;"><strong>Graduation Project</strong></p>
-                <img src="project1.jpg" class="img-small">
-            </div>
-            <div class="work-item">
-                <p style="font-size: 0.85em; margin: 0;"><strong>Tone Coffee</strong></p>
-                <img src="project2.jpg" class="img-small">
-            </div>
-            <div class="work-item">
-                <p style="font-size: 0.85em; margin: 0;"><strong>Hash Flow</strong></p>
-                <img src="project3.jpg" class="img-small">
-            </div>
-        </div>
-    </section>
+<section class="skills fade-up">
+  <div class="skill-box">
+    <i class="fas fa-laptop-code"></i>
+    <h3>المهارات التقنية</h3>
+    <p>Microsoft Office (Excel, PowerPoint, Word)</p>
+    <p>إدارة المتاجر الإلكترونية والدعم اللوجستي</p>
+    <p>التسويق الرقمي وإدارة الحسابات والمحتوى</p>
+    <p>إدارة الحملات والترويج</p>
+    <p>إدارة المنتجات ومتابعة الطلبات</p>
+    <p>تحسين تجربة العملاء</p>
+  </div>
+  <div class="skill-box">
+    <i class="fas fa-users"></i>
+    <h3>المهارات الشخصية</h3>
+    <p>التنظيم وإدارة الوقت</p>
+    <p>سرعة التعلم والتكيف</p>
+    <p>التواصل والعمل ضمن فريق</p>
+    <p>حل المشكلات واتخاذ القرارات</p>
+  </div>
+</section>
 
-    <section class="section reveal">
-        <span class="section-title"><span class="lang-en">Education</span><span class="lang-ar" data-lang="ar">التعليم</span></span>
-        <p style="font-size: 0.9em;"><strong>Taibah University (2025)</strong></p>
-    </section>
+<section class="certificates fade-up">
+  <h2>الشهادات</h2>
+  <div class="card">
+    <img src="images/certificate1.jpg" alt="إدارة سلاسل الامداد">
+    <div class="card-content">
+      <h4>إدارة سلاسل الامداد - هدف دروب</h4>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/certificate2.jpg" alt="دليلك الشامل إلى التجارة الإلكترونية">
+    <div class="card-content">
+      <h4>دليلك الشامل إلى التجارة الإلكترونية - هدف دروب</h4>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/certificate3.jpg" alt="مقدمة في التسويق عبر وسائل التواصل الاجتماعي">
+    <div class="card-content">
+      <h4>مقدمة في التسويق عبر وسائل التواصل الاجتماعي</h4>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/certificate4.jpg" alt="تحليل البيانات بالإكسل">
+    <div class="card-content">
+      <h4>تحليل البيانات بالإكسل - معهد إمداد المعرفة</h4>
+    </div>
+  </div>
+</section>
 
-    <footer class="reveal" style="text-align: center; margin-top: 80px; padding-bottom: 40px;">
-        <span class="section-title">Email Me</span>
-        <div class="footer-icons">
-            <a href="mailto:Li7en7@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-    </footer>
-</div>
+<section class="projects fade-up">
+  <h2>المشاريع</h2>
+  <div class="card">
+    <img src="images/project1.jpg" alt="الموقع الإلكتروني">
+    <div class="card-content">
+      <h4>الموقع الإلكتروني (مشروع تخرج)</h4>
+      <p>إنشاء موقع إلكتروني يهدف إلى تمكين الرسامين من عرض وبيع أعمالهم عبر الإنترنت، يشمل إضافة المنتجات وتنظيمها وتجربة إدارة المتجر، مع التركيز على توفير بيئة تفاعلية تربط الرسامين بمحبي الفن.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/project2.jpg" alt="إدارة حسابات Tone coffee">
+    <div class="card-content">
+      <h4>إدارة حسابات السوشيال ميديا – لمقهى Tone coffee</h4>
+      <p>التصوير، تصميم البوستات، إنشاء المحتوى، والتفاعل مع الجمهور.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/project3.jpg" alt="هاش فلو">
+    <div class="card-content">
+      <h4>التعامل مع الحساب الرسمي لهاش فلو (Hash Flow)</h4>
+      <p>إعداد المحتوى التسويقي.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact fade-up">
+  <h2>تواصل معي</h2>
+  <a href="mailto:your-email@example.com"><i class="fas fa-envelope icon"></i> أرسل لي بريد إلكتروني</a>
+</section>
 
 <script>
-    function toggleLanguage() {
-        const body = document.body;
-        const btn = document.getElementById('langBtn');
-        const enEls = document.querySelectorAll('.lang-en');
-        const arEls = document.querySelectorAll('.lang-ar');
-        if (body.classList.contains('rtl')) {
-            body.classList.remove('rtl'); body.dir = "ltr";
-            enEls.forEach(el => el.style.display = 'block'); arEls.forEach(el => el.style.display = 'none');
-            btn.innerText = "العربية";
-        } else {
-            body.classList.add('rtl'); body.dir = "rtl";
-            enEls.forEach(el => el.style.display = 'none'); arEls.forEach(el => el.style.display = 'block');
-            btn.innerText = "English";
-        }
-    }
+  // Fade up animation
+  const faders = document.querySelectorAll('.fade-up');
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('show');
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
 
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
-        }
+  // Translation button
+  function translateSite() {
+    if(document.documentElement.lang === "ar"){
+      document.documentElement.lang="en";
+      document.body.style.direction="ltr";
+      document.querySelector('header h1').textContent="Layan";
+      document.querySelector('header p').textContent="E-commerce & Logistics Support";
+      document.querySelector('section#about h2').textContent="About Me";
+      document.querySelector('section#about p').textContent="Graduate in E-commerce and Logistics Support, interested in managing online stores and organizing business operations. Passionate about digital marketing, product management, and order tracking, focusing on improving customer experience and increasing operational efficiency in e-commerce.";
+    } else {
+      document.documentElement.lang="ar";
+      document.body.style.direction="rtl";
+      document.querySelector('header h1').textContent="Layan";
+      document.querySelector('header p').textContent="تجارة إلكترونية ودعم لوجستي";
+      document.querySelector('section#about h2').textContent="About Me";
+      document.querySelector('section#about p').textContent="خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.";
     }
-    window.addEventListener("scroll", reveal);
-    window.onload = reveal;
+  }
 </script>
+
 </body>
 </html>
