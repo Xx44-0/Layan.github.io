@@ -8,28 +8,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
-  body { color:#0D1B2A; background:#f5f3ef; line-height:1.6; }
+  body { color:#0D1B2A; background:#f5f3ef; line-height:1.6; overflow-x:hidden; }
 
-  /* Animated gradient background */
+  /* Animated background with moving cells */
+  body::before {
+    content:""; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:#f5f3ef;
+    z-index:-2;
+  }
+  .bg-canvas {
+    position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
+  }
+
   header {
     color:#0D1B2A;
     padding:80px 20px;
     text-align:center;
-    background: linear-gradient(-45deg, #f5f3ef, #a2d5f2, #8ac6d1, #f5f3ef);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(135deg, #f5f3ef, #0D1B2A);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 20px #0D1B2A inset;
   }
-
-  @keyframes gradientBG {
-    0% { background-position:0% 50%; }
-    50% { background-position:100% 50%; }
-    100% { background-position:0% 50%; }
-  }
-
-  header h1 { font-size:3.5rem; margin-bottom:10px; }
-  header p { font-size:1.3rem; max-width:600px; margin:0 auto; }
+  header h1 { font-size:3.5rem; margin-bottom:10px; text-shadow: 0 0 8px #0D1B2A; }
+  header p { font-size:1.3rem; max-width:600px; margin:0 auto; text-shadow: 0 0 6px #0D1B2A; }
 
   /* Translate button */
   .translate-btn {
@@ -45,42 +46,39 @@
     font-weight:bold;
     transition: 0.3s;
     z-index:10;
+    box-shadow:0 0 15px #0D1B2A;
   }
-  .translate-btn:hover { background:#1A2A3A; }
+  .translate-btn:hover { background:#1A2A3A; box-shadow:0 0 25px #0D1B2A; }
 
-  section { padding:60px 20px; max-width:1100px; margin:0 auto; }
-  h2 { font-size:2.2rem; margin-bottom:30px; text-align:center; color:#0D1B2A; }
+  section { padding:60px 20px; max-width:900px; margin:0 auto; }
+  h2 { font-size:2.2rem; margin-bottom:30px; text-align:center; color:#0D1B2A; text-shadow:0 0 8px #0D1B2A; }
 
-  .about-me { display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:50px;}
-  .about-me i { font-size:2.5rem; color:#0D1B2A; margin-bottom:15px; }
-  .about-me p { max-width:700px; font-size:1.1rem; }
-
-  .info { margin-bottom:50px; text-align:center; }
-  .info h3 { font-size:1.5rem; margin-bottom:10px; color:#0D1B2A; }
-  .info p { font-size:1rem; margin-bottom:5px; }
-
-  .skills { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-bottom:50px; }
-  .skill-box { background:white; padding:25px; border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition: transform 0.4s, box-shadow 0.4s; }
-  .skill-box:hover { transform: translateY(-10px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
-  .skill-box i { font-size:1.6rem; color:#0D1B2A; margin-bottom:12px; }
-  .skill-box h3 { margin-bottom:12px; font-size:1.3rem; }
-
-  .projects, .certificates { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; margin-bottom:50px; }
-  .card { background:white; border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15); overflow:hidden; transition: transform 0.4s, box-shadow 0.4s; cursor:pointer; }
-  .card:hover { transform: translateY(-10px) scale(1.03); box-shadow:0 12px 24px rgba(0,0,0,0.25); }
-  .card img { width:100%; height:200px; object-fit:cover; }
-  .card-content { padding:18px; }
-  .card-content h4 { font-size:1.25rem; margin-bottom:10px; color:#0D1B2A; }
-  .card-content p { font-size:1rem; color:#333; }
-
-  .contact { text-align:center; margin-top:60px; }
-  .contact a { display:inline-block; background:#0D1B2A; color:white; padding:16px 35px; border-radius:50px; font-weight:bold; font-size:1.1rem; transition: 0.3s; }
-  .contact a:hover { background:#1A2A3A; }
-  .icon { margin-right:10px; color:white; }
-
-  /* Fade up animation */
   .fade-up { opacity:0; transform: translateY(40px); transition: all 0.9s ease; }
   .fade-up.show { opacity:1; transform: translateY(0); }
+
+  /* About Me */
+  .about-me { display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:50px;}
+  .about-me i { font-size:3rem; color:#0D1B2A; margin-bottom:15px; text-shadow:0 0 10px #0D1B2A; }
+  .about-me p { max-width:700px; font-size:1.1rem; line-height:1.5; }
+  .cv-icon { margin-top:15px; font-size:2rem; color:#0D1B2A; cursor:pointer; transition:0.3s; }
+  .cv-icon:hover { color:#1A2A3A; transform: scale(1.2); }
+
+  /* Skills vertical with icons */
+  .skills { display:flex; flex-direction:column; gap:20px; margin-bottom:50px; }
+  .skill { display:flex; align-items:center; gap:15px; padding:15px 20px; background:#fff; border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition:0.4s; }
+  .skill:hover { transform: translateX(5px); box-shadow:0 8px 18px rgba(0,0,0,0.25); }
+  .skill i { font-size:1.5rem; color:#0D1B2A; text-shadow:0 0 6px #0D1B2A; }
+
+  /* Certificates & Projects under each other */
+  .card { background:#fff; padding:20px; border-radius:12px; margin-bottom:20px; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition:0.4s; }
+  .card:hover { transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.25); }
+  .card img { width:100%; border-radius:10px; margin-bottom:12px; }
+  .card h4 { font-size:1.3rem; margin-bottom:8px; color:#0D1B2A; text-shadow:0 0 6px #0D1B2A; }
+  .card p { font-size:1rem; line-height:1.4; color:#333; }
+
+  .contact { text-align:center; margin-top:60px; }
+  .contact a { display:inline-block; background:#0D1B2A; color:white; padding:16px 35px; border-radius:50px; font-weight:bold; font-size:1.1rem; transition:0.3s; box-shadow:0 0 15px #0D1B2A; }
+  .contact a:hover { background:#1A2A3A; box-shadow:0 0 25px #0D1B2A; }
 
   @media(max-width:600px){
     header h1 { font-size:2.5rem; }
@@ -89,6 +87,8 @@
 </style>
 </head>
 <body>
+
+<canvas class="bg-canvas"></canvas>
 
 <header>
   <button class="translate-btn" onclick="translateSite()">Translate</button>
@@ -100,85 +100,35 @@
   <i class="fas fa-user-circle"></i>
   <h2>About Me</h2>
   <p>خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.</p>
-</section>
-
-<section class="info fade-up">
-  <h2>التعليم</h2>
-  <p>‏دبلوم تجارة إلكترونية ودعم اللوجستي - جامعة طيبة 2025</p>
+  <i class="fas fa-file-alt cv-icon" title="View CV"></i>
 </section>
 
 <section class="skills fade-up">
-  <div class="skill-box">
-    <i class="fas fa-laptop-code"></i>
-    <h3>المهارات التقنية</h3>
-    <p>Microsoft Office (Excel, PowerPoint, Word)</p>
-    <p>إدارة المتاجر الإلكترونية والدعم اللوجستي</p>
-    <p>التسويق الرقمي وإدارة الحسابات والمحتوى</p>
-    <p>إدارة الحملات والترويج</p>
-    <p>إدارة المنتجات ومتابعة الطلبات</p>
-    <p>تحسين تجربة العملاء</p>
-  </div>
-  <div class="skill-box">
-    <i class="fas fa-users"></i>
-    <h3>المهارات الشخصية</h3>
-    <p>التنظيم وإدارة الوقت</p>
-    <p>سرعة التعلم والتكيف</p>
-    <p>التواصل والعمل ضمن فريق</p>
-    <p>حل المشكلات واتخاذ القرارات</p>
-  </div>
+  <div class="skill"><i class="fas fa-laptop-code"></i>Microsoft Office (Excel, PowerPoint, Word)</div>
+  <div class="skill"><i class="fas fa-store"></i>إدارة المتاجر الإلكترونية والدعم اللوجستي</div>
+  <div class="skill"><i class="fas fa-bullhorn"></i>التسويق الرقمي وإدارة الحسابات والمحتوى</div>
+  <div class="skill"><i class="fas fa-chart-line"></i>إدارة الحملات والترويج</div>
+  <div class="skill"><i class="fas fa-box-open"></i>إدارة المنتجات ومتابعة الطلبات</div>
+  <div class="skill"><i class="fas fa-smile"></i>تحسين تجربة العملاء</div>
+  <div class="skill"><i class="fas fa-clock"></i>التنظيم وإدارة الوقت</div>
+  <div class="skill"><i class="fas fa-brain"></i>سرعة التعلم والتكيف</div>
+  <div class="skill"><i class="fas fa-users"></i>التواصل والعمل ضمن فريق</div>
+  <div class="skill"><i class="fas fa-lightbulb"></i>حل المشكلات واتخاذ القرارات</div>
 </section>
 
 <section class="certificates fade-up">
   <h2>الشهادات</h2>
-  <div class="card">
-    <img src="images/certificate1.jpg" alt="إدارة سلاسل الامداد">
-    <div class="card-content">
-      <h4>إدارة سلاسل الامداد - هدف دروب</h4>
-    </div>
-  </div>
-  <div class="card">
-    <img src="images/certificate2.jpg" alt="دليلك الشامل إلى التجارة الإلكترونية">
-    <div class="card-content">
-      <h4>دليلك الشامل إلى التجارة الإلكترونية - هدف دروب</h4>
-    </div>
-  </div>
-  <div class="card">
-    <img src="images/certificate3.jpg" alt="مقدمة في التسويق عبر وسائل التواصل الاجتماعي">
-    <div class="card-content">
-      <h4>مقدمة في التسويق عبر وسائل التواصل الاجتماعي</h4>
-    </div>
-  </div>
-  <div class="card">
-    <img src="images/certificate4.jpg" alt="تحليل البيانات بالإكسل">
-    <div class="card-content">
-      <h4>تحليل البيانات بالإكسل - معهد إمداد المعرفة</h4>
-    </div>
-  </div>
+  <div class="card"><img src="images/certificate1.jpg" alt=""><h4>إدارة سلاسل الامداد - هدف دروب</h4></div>
+  <div class="card"><img src="images/certificate2.jpg" alt=""><h4>دليلك الشامل إلى التجارة الإلكترونية - هدف دروب</h4></div>
+  <div class="card"><img src="images/certificate3.jpg" alt=""><h4>مقدمة في التسويق عبر وسائل التواصل الاجتماعي</h4></div>
+  <div class="card"><img src="images/certificate4.jpg" alt=""><h4>تحليل البيانات بالإكسل - معهد إمداد المعرفة</h4></div>
 </section>
 
 <section class="projects fade-up">
   <h2>المشاريع</h2>
-  <div class="card">
-    <img src="images/project1.jpg" alt="الموقع الإلكتروني">
-    <div class="card-content">
-      <h4>الموقع الإلكتروني (مشروع تخرج)</h4>
-      <p>إنشاء موقع إلكتروني يهدف إلى تمكين الرسامين من عرض وبيع أعمالهم عبر الإنترنت، يشمل إضافة المنتجات وتنظيمها وتجربة إدارة المتجر، مع التركيز على توفير بيئة تفاعلية تربط الرسامين بمحبي الفن.</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="images/project2.jpg" alt="إدارة حسابات Tone coffee">
-    <div class="card-content">
-      <h4>إدارة حسابات السوشيال ميديا – لمقهى Tone coffee</h4>
-      <p>التصوير، تصميم البوستات، إنشاء المحتوى، والتفاعل مع الجمهور.</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="images/project3.jpg" alt="هاش فلو">
-    <div class="card-content">
-      <h4>التعامل مع الحساب الرسمي لهاش فلو (Hash Flow)</h4>
-      <p>إعداد المحتوى التسويقي.</p>
-    </div>
-  </div>
+  <div class="card"><img src="images/project1.jpg" alt=""><h4>الموقع الإلكتروني (مشروع تخرج)</h4><p>إنشاء موقع إلكتروني يهدف إلى تمكين الرسامين من عرض وبيع أعمالهم عبر الإنترنت، يشمل إضافة المنتجات وتنظيمها وتجربة إدارة المتجر، مع التركيز على توفير بيئة تفاعلية تربط الرسامين بمحبي الفن.</p></div>
+  <div class="card"><img src="images/project2.jpg" alt=""><h4>إدارة حسابات السوشيال ميديا – لمقهى Tone coffee</h4><p>التصوير، تصميم البوستات، إنشاء المحتوى، والتفاعل مع الجمهور.</p></div>
+  <div class="card"><img src="images/project3.jpg" alt=""><h4>التعامل مع الحساب الرسمي لهاش فلو (Hash Flow)</h4><p>إعداد المحتوى التسويقي.</p></div>
 </section>
 
 <section class="contact fade-up">
@@ -187,34 +137,59 @@
 </section>
 
 <script>
-  // Fade up animation
+  // Canvas background with moving white cells
+  const canvas = document.querySelector('.bg-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+  for(let i=0;i<120;i++){
+    particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, dx:(Math.random()-0.5)*0.5, dy:(Math.random()-0.5)*0.5});
+  }
+
+  function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,0.8)';
+      ctx.fill();
+      p.x+=p.dx; p.y+=p.dy;
+      if(p.x<0||p.x>canvas.width) p.dx*=-1;
+      if(p.y<0||p.y>canvas.height) p.dy*=-1;
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+
+  // Fade-up animation
   const faders = document.querySelectorAll('.fade-up');
-  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-    entries.forEach(entry => {
+  const appearOptions = { threshold:0.2, rootMargin:"0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry=>{
       if(!entry.isIntersecting) return;
       entry.target.classList.add('show');
-      appearOnScroll.unobserve(entry.target);
+      observer.unobserve(entry.target);
     });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
+  },appearOptions);
+  faders.forEach(fader=>appearOnScroll.observe(fader));
 
   // Translation button
-  function translateSite() {
-    if(document.documentElement.lang === "ar"){
+  function translateSite(){
+    if(document.documentElement.lang==="ar"){
       document.documentElement.lang="en";
       document.body.style.direction="ltr";
-      document.querySelector('header h1').textContent="Layan";
       document.querySelector('header p').textContent="E-commerce & Logistics Support";
-      document.querySelector('section#about h2').textContent="About Me";
-      document.querySelector('section#about p').textContent="Graduate in E-commerce and Logistics Support, interested in managing online stores and organizing business operations. Passionate about digital marketing, product management, and order tracking, focusing on improving customer experience and increasing operational efficiency in e-commerce.";
+      document.querySelector('#about h2').textContent="About Me";
+      document.querySelector('#about p').textContent="Graduate in E-commerce and Logistics Support, interested in managing online stores and organizing business operations. Passionate about digital marketing, product management, and order tracking, focusing on improving customer experience and increasing operational efficiency in e-commerce.";
     } else {
       document.documentElement.lang="ar";
       document.body.style.direction="rtl";
-      document.querySelector('header h1').textContent="Layan";
       document.querySelector('header p').textContent="تجارة إلكترونية ودعم لوجستي";
-      document.querySelector('section#about h2').textContent="About Me";
-      document.querySelector('section#about p').textContent="خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.";
+      document.querySelector('#about h2').textContent="About Me";
+      document.querySelector('#about p').textContent="خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.";
     }
   }
 </script>
