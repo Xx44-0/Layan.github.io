@@ -5,31 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layan Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Arabic:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        :root { --navy: #1a2a6c; --silver: #f0f4f8; --white: #ffffff; --text: #2d3436; }
-        body { font-family: 'Poppins', 'Tajawal', sans-serif; background-color: var(--white); margin: 0; transition: all 0.3s; color: var(--text); line-height: 1.8; }
-        
-        /* زر تحويل اللغة */
-        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: var(--navy); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-family: 'Tajawal'; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        :root { --navy: #1a2a6c; --text: #2d3436; }
 
-        .header { background: var(--white); padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--silver); }
-        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 1px solid var(--silver); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .section-title { color: var(--navy); border-left: 5px solid var(--navy); padding-left: 15px; margin-bottom: 20px; font-size: 1.4em; }
-        
+        body { 
+            font-family: 'Bodoni Moda', 'Noto Serif Arabic', serif; 
+            margin: 0; 
+            color: var(--text); 
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #ffffff, #f7f9fc, #eef2f3, #ffffff);
+            background-size: 400% 400%;
+            animation: aurora 15s ease infinite;
+        }
+
+        @keyframes aurora {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* كلاس للتحكم في ظهور العناصر عند النزول */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lang-switch { position: fixed; top: 30px; right: 30px; z-index: 1000; }
+        .lang-btn { 
+            background: rgba(255,255,255,0.7); 
+            backdrop-filter: blur(5px);
+            color: var(--navy); 
+            border: 1px solid var(--navy); 
+            padding: 8px 18px; 
+            cursor: pointer; 
+            letter-spacing: 2px;
+            font-size: 0.8em;
+            transition: 0.3s;
+        }
+        .lang-btn:hover { background: var(--navy); color: white; }
+
+        .header { 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header h1 { 
+            font-size: clamp(3em, 10vw, 6em); 
+            margin: 0; 
+            font-weight: 300; 
+            letter-spacing: 12px;
+            text-transform: uppercase;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
+
+        .section-card { margin-bottom: 120px; }
+
+        .section-title { 
+            font-size: 0.8em; 
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--navy);
+            margin-bottom: 40px;
+            display: block;
+            opacity: 0.6;
+        }
+
+        .content-text { font-size: 1.2em; line-height: 2; }
+
+        .img-frame { 
+            width: 100%; 
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 10px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-top: 30px;
+            transition: 0.5s;
+        }
+        .img-frame:hover { transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+
         .rtl { direction: rtl; text-align: right; }
-        .rtl .section-title { border-left: none; border-right: 5px solid var(--navy); padding-right: 15px; padding-left: 0; }
-        .rtl .lang-switch { right: auto; left: 20px; }
+        .rtl .lang-switch { right: auto; left: 30px; }
+        .rtl .header h1 { letter-spacing: 0; }
 
-        /* تنسيق الصور */
-        .img-placeholder { width: 100%; max-width: 400px; height: auto; border-radius: 10px; border: 2px dashed var(--silver); margin: 15px 0; display: block; background: #fafafa; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .item-card { border: 1px solid var(--silver); border-radius: 12px; padding: 15px; background: #fff; }
-        .item-img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 10px; background: #eee; }
+        .footer { 
+            padding: 100px 20px; 
+            text-align: center; 
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
 
-        .footer { text-align: center; padding: 40px; background: #f8f9fa; }
         [data-lang="ar"] { display: none; }
     </style>
 </head>
@@ -39,61 +115,50 @@
     <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
 </div>
 
-<header class="header">
-    <h1 style="color: var(--navy); margin: 0; font-size: 2.5em;">Layan | ليان</h1>
-    <p class="lang-en">E-commerce & Logistics Specialist</p>
-    <p class="lang-ar" data-lang="ar">متخصصة تجارة إلكترونية ودعم لوجستي</p>
+<header class="header reveal">
+    <h1>Layan</h1>
+    <p class="lang-en" style="letter-spacing: 4px; opacity: 0.5;">E-commerce & Logistics Specialist</p>
+    <p class="lang-ar" data-lang="ar" style="opacity: 0.5;">متخصصة تجارة إلكترونية ودعم لوجستي</p>
 </header>
 
 <div class="container">
-    <div class="card">
-        <h2 class="section-title"><i class="fas fa-user"></i> <span class="lang-en">About Me</span><span class="lang-ar" data-lang="ar">نبذة عني</span></h2>
-        <p class="lang-en">E-commerce and Logistics graduate, passionate about digital marketing and store management.</p>
-        <p class="lang-ar" data-lang="ar">خريجة تخصص تجارة إلكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية.</p>
-        
-        <p style="font-weight: bold; margin-top: 20px;"><span class="lang-en">My CV:</span><span class="lang-ar" data-lang="ar">السيرة الذاتية:</span></p>
-        <img src="cv-image.jpg" alt="CV Preview" class="img-placeholder">
-    </div>
+    <section class="section-card reveal">
+        <span class="section-title"><span class="lang-en">The Profile</span><span class="lang-ar" data-lang="ar">النبذة الشخصية</span></span>
+        <div class="content-text">
+            <p class="lang-en">E-commerce and Logistics graduate, driven by digital efficiency and modern aesthetics. Passionate about managing online stores and optimizing operational workflows to enhance customer experience.</p>
+            <p class="lang-ar" data-lang="ar">خريجة تجارة إلكترونية ودعم لوجستي، مهتمة بالكفاءة الرقمية والجماليات الحديثة. شغوفة بإدارة المتاجر الإلكترونية وتحسين سير العمليات لرفع مستوى تجربة العملاء.</p>
+        </div>
+        <img src="cv-image.jpg" alt="CV" class="img-frame">
+    </section>
 
-    <div class="card">
-        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> <span class="lang-en">Education</span><span class="lang-ar" data-lang="ar">التعليم</span></h2>
-        <p><strong><span class="lang-en">Taibah University - 2025</span><span class="lang-ar" data-lang="ar">جامعة طيبة - 2025</span></strong></p>
-    </div>
+    <section class="section-card reveal">
+        <span class="section-title"><span class="lang-en">Education</span><span class="lang-ar" data-lang="ar">التعليم</span></span>
+        <div class="content-text">
+            <p><strong><span class="lang-en">Taibah University (2025)</span><span class="lang-ar" data-lang="ar">جامعة طيبة (٢٠٢٥)</span></strong></p>
+        </div>
+    </section>
 
-    <div class="card">
-        <h2 class="section-title"><i class="fas fa-certificate"></i> <span class="lang-en">Certificates</span><span class="lang-ar" data-lang="ar">الشهادات</span></h2>
+    <section class="section-card reveal">
+        <span class="section-title"><span class="lang-en">Portfolio</span><span class="lang-ar" data-lang="ar">الأعمال والشهادات</span></span>
         <div class="grid">
-            <div class="item-card">
-                <p><span class="lang-en">Excel Data Analysis</span><span class="lang-ar" data-lang="ar">تحليل البيانات بالإكسل</span></p>
-                <img src="cert1.jpg" class="item-img" alt="Certificate">
+            <div class="project-item">
+                <p><strong><span class="lang-en">Project Alpha</span><span class="lang-ar" data-lang="ar">مشروع التخرج</span></strong></p>
+                <img src="project1.jpg" class="img-frame">
             </div>
-            <div class="item-card">
-                <p><span class="lang-en">Supply Chain Mgmt</span><span class="lang-ar" data-lang="ar">إدارة سلاسل الامداد</span></p>
-                <img src="cert2.jpg" class="item-img" alt="Certificate">
+            <div class="project-item">
+                <p><strong><span class="lang-en">Excellence Award</span><span class="lang-ar" data-lang="ar">شهادة تحليل البيانات</span></strong></p>
+                <img src="cert1.jpg" class="img-frame">
             </div>
         </div>
-    </div>
-
-    <div class="card">
-        <h2 class="section-title"><i class="fas fa-project-diagram"></i> <span class="lang-en">Projects</span><span class="lang-ar" data-lang="ar">المشاريع</span></h2>
-        <div class="grid">
-            <div class="item-card">
-                <p><strong><span class="lang-en">Graduation Project</span><span class="lang-ar" data-lang="ar">مشروع التخرج</span></strong></p>
-                <img src="project1.jpg" class="item-img" alt="Project">
-            </div>
-            <div class="item-card">
-                <p><strong>Tone Coffee</strong></p>
-                <img src="project2.jpg" class="item-img" alt="Project">
-            </div>
-        </div>
-    </div>
+    </section>
 </div>
 
-<footer class="footer">
-    <p>Contact | للتواصل: <a href="mailto:Li7en7@gmail.com" style="color:var(--navy); font-weight:bold;">Li7en7@gmail.com</a></p>
+<footer class="footer reveal">
+    <a href="mailto:Li7en7@gmail.com" style="color: black; text-decoration: none; font-size: 1.2em; border-bottom: 1px solid black; padding-bottom: 5px;">Li7en7@gmail.com</a>
 </footer>
 
 <script>
+    // وظيفة تحويل اللغة
     function toggleLanguage() {
         const body = document.body;
         const btn = document.getElementById('langBtn');
@@ -103,17 +168,34 @@
         if (body.classList.contains('rtl')) {
             body.classList.remove('rtl');
             body.dir = "ltr";
-            enEls.forEach(el => el.style.display = 'inline');
+            enEls.forEach(el => el.style.display = 'block');
             arEls.forEach(el => el.style.display = 'none');
             btn.innerText = "العربية";
         } else {
             body.classList.add('rtl');
             body.dir = "rtl";
             enEls.forEach(el => el.style.display = 'none');
-            arEls.forEach(el => el.style.display = 'inline');
+            arEls.forEach(el => el.style.display = 'block');
             btn.innerText = "English";
         }
     }
+
+    // وظيفة حركة الظهور عند النزول (Scroll Reveal)
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+    // لتشغيل الحركة عند التحميل الأول
+    window.onload = reveal;
 </script>
 
 </body>
