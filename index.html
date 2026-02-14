@@ -1,76 +1,120 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتفوليو | ليان</title>
+    <title>Layan Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --main: #2c3e50; --accent: #3498db; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; background: #f4f7f6; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        header { text-align: center; border-bottom: 3px solid var(--accent); padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: var(--main); margin: 0; }
-        h2 { color: var(--accent); border-right: 5px solid var(--accent); padding-right: 15px; margin-top: 30px; }
-        .box { background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px dashed #ddd; }
-        ul { padding-right: 20px; }
-        li { margin-bottom: 8px; }
-        .project-item { margin-bottom: 20px; padding: 10px; border-bottom: 1px dotted #ccc; }
-        .project-title { font-weight: bold; color: var(--main); font-size: 1.1em; }
+        :root { --navy: #1a2a6c; --silver: #f0f4f8; --white: #ffffff; --text: #2d3436; }
+        body { font-family: 'Poppins', 'Tajawal', sans-serif; background-color: var(--white); margin: 0; transition: all 0.3s; color: var(--text); line-height: 1.8; }
+        
+        /* زر تحويل اللغة */
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+        .lang-btn { background: var(--navy); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-family: 'Tajawal'; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+
+        .header { background: var(--white); padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--silver); }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 1px solid var(--silver); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .section-title { color: var(--navy); border-left: 5px solid var(--navy); padding-left: 15px; margin-bottom: 20px; font-size: 1.4em; }
+        
+        .rtl { direction: rtl; text-align: right; }
+        .rtl .section-title { border-left: none; border-right: 5px solid var(--navy); padding-right: 15px; padding-left: 0; }
+        .rtl .lang-switch { right: auto; left: 20px; }
+
+        /* تنسيق الصور */
+        .img-placeholder { width: 100%; max-width: 400px; height: auto; border-radius: 10px; border: 2px dashed var(--silver); margin: 15px 0; display: block; background: #fafafa; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .item-card { border: 1px solid var(--silver); border-radius: 12px; padding: 15px; background: #fff; }
+        .item-img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 10px; background: #eee; }
+
+        .footer { text-align: center; padding: 40px; background: #f8f9fa; }
+        [data-lang="ar"] { display: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>ليان</h1>
-            <p><strong>خريجة تجارة إلكترونية ودعم لوجستي</strong></p>
-        </header>
 
-        <section>
-            <h2>نبذة عني</h2>
-            <p>خريجة تجارة إلكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية، تنظيم العمليات التجارية، التسويق الرقمي، إدارة المنتجات، متابعة الطلبات، وتحسين تجربة العملاء ضمن بيئة التجارة الإلكترونية. أتطلع للعمل في بيئة عملية تتيح لي التعلم والنمو وتطوير مهاراتي المهنية.</p>
-        </section>
+<div class="lang-switch">
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
+</div>
 
-        <section>
-            <h2>التعليم</h2>
-            <div class="box">
-                <strong>دبلوم تجارة إلكترونية ودعم لوجستي</strong><br>
-                جامعة طيبة - 2025
-            </div>
-        </section>
+<header class="header">
+    <h1 style="color: var(--navy); margin: 0; font-size: 2.5em;">Layan | ليان</h1>
+    <p class="lang-en">E-commerce & Logistics Specialist</p>
+    <p class="lang-ar" data-lang="ar">متخصصة تجارة إلكترونية ودعم لوجستي</p>
+</header>
 
-        <section>
-            <h2>المهارات</h2>
-            <p><strong>المهارات التقنية:</strong></p>
-            <ul>
-                <li>إدارة المتاجر الإلكترونية والدعم اللوجستي</li>
-                <li>التسويق الرقمي وإدارة الحسابات والمحتوى</li>
-                <li>إدارة المنتجات ومتابعة الطلبات</li>
-                <li>برامج Microsoft Office (Excel, PowerPoint, Word)</li>
-            </ul>
-            <p><strong>المهارات الشخصية:</strong></p>
-            <ul>
-                <li>التنظيم وإدارة الوقت</li>
-                <li>سرعة التعلم والتكيف</li>
-                <li>حل المشكلات واتخاذ القرارات</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>المشاريع</h2>
-            <div class="project-item">
-                <div class="project-title">الموقع الإلكتروني (مشروع تخرج)</div>
-                <p>إنشاء موقع إلكتروني لتمكين الرسامين من عرض وبيع أعمالهم عبر الإنترنت.</p>
-            </div>
-            <div class="project-item">
-                <div class="project-title">إدارة حسابات السوشيال ميديا – مقهى</div>
-                <p>التصوير، تصميم البوستات، إنشاء المحتوى، والتفاعل مع الجمهور.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>الشهادات</h2>
-            <div class="box">تحليل البيانات بالإكسل - معهد إمداد المعرفة</div>
-        </section>
+<div class="container">
+    <div class="card">
+        <h2 class="section-title"><i class="fas fa-user"></i> <span class="lang-en">About Me</span><span class="lang-ar" data-lang="ar">نبذة عني</span></h2>
+        <p class="lang-en">E-commerce and Logistics graduate, passionate about digital marketing and store management.</p>
+        <p class="lang-ar" data-lang="ar">خريجة تخصص تجارة إلكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية.</p>
+        
+        <p style="font-weight: bold; margin-top: 20px;"><span class="lang-en">My CV:</span><span class="lang-ar" data-lang="ar">السيرة الذاتية:</span></p>
+        <img src="cv-image.jpg" alt="CV Preview" class="img-placeholder">
     </div>
+
+    <div class="card">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> <span class="lang-en">Education</span><span class="lang-ar" data-lang="ar">التعليم</span></h2>
+        <p><strong><span class="lang-en">Taibah University - 2025</span><span class="lang-ar" data-lang="ar">جامعة طيبة - 2025</span></strong></p>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title"><i class="fas fa-certificate"></i> <span class="lang-en">Certificates</span><span class="lang-ar" data-lang="ar">الشهادات</span></h2>
+        <div class="grid">
+            <div class="item-card">
+                <p><span class="lang-en">Excel Data Analysis</span><span class="lang-ar" data-lang="ar">تحليل البيانات بالإكسل</span></p>
+                <img src="cert1.jpg" class="item-img" alt="Certificate">
+            </div>
+            <div class="item-card">
+                <p><span class="lang-en">Supply Chain Mgmt</span><span class="lang-ar" data-lang="ar">إدارة سلاسل الامداد</span></p>
+                <img src="cert2.jpg" class="item-img" alt="Certificate">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title"><i class="fas fa-project-diagram"></i> <span class="lang-en">Projects</span><span class="lang-ar" data-lang="ar">المشاريع</span></h2>
+        <div class="grid">
+            <div class="item-card">
+                <p><strong><span class="lang-en">Graduation Project</span><span class="lang-ar" data-lang="ar">مشروع التخرج</span></strong></p>
+                <img src="project1.jpg" class="item-img" alt="Project">
+            </div>
+            <div class="item-card">
+                <p><strong>Tone Coffee</strong></p>
+                <img src="project2.jpg" class="item-img" alt="Project">
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>Contact | للتواصل: <a href="mailto:Li7en7@gmail.com" style="color:var(--navy); font-weight:bold;">Li7en7@gmail.com</a></p>
+</footer>
+
+<script>
+    function toggleLanguage() {
+        const body = document.body;
+        const btn = document.getElementById('langBtn');
+        const enEls = document.querySelectorAll('.lang-en');
+        const arEls = document.querySelectorAll('.lang-ar');
+
+        if (body.classList.contains('rtl')) {
+            body.classList.remove('rtl');
+            body.dir = "ltr";
+            enEls.forEach(el => el.style.display = 'inline');
+            arEls.forEach(el => el.style.display = 'none');
+            btn.innerText = "العربية";
+        } else {
+            body.classList.add('rtl');
+            body.dir = "rtl";
+            enEls.forEach(el => el.style.display = 'none');
+            arEls.forEach(el => el.style.display = 'inline');
+            btn.innerText = "English";
+        }
+    }
+</script>
+
 </body>
 </html>
