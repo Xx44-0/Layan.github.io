@@ -25,87 +25,35 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* كلاس للتحكم في ظهور العناصر عند النزول */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         .lang-switch { position: fixed; top: 30px; right: 30px; z-index: 1000; }
         .lang-btn { 
-            background: rgba(255,255,255,0.7); 
-            backdrop-filter: blur(5px);
-            color: var(--navy); 
-            border: 1px solid var(--navy); 
-            padding: 8px 18px; 
-            cursor: pointer; 
-            letter-spacing: 2px;
-            font-size: 0.8em;
-            transition: 0.3s;
-        }
-        .lang-btn:hover { background: var(--navy); color: white; }
-
-        .header { 
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(5px);
+            color: var(--navy); border: 1px solid var(--navy); padding: 8px 18px; 
+            cursor: pointer; letter-spacing: 2px; font-size: 0.8em; transition: 0.3s;
         }
 
-        .header h1 { 
-            font-size: clamp(3em, 10vw, 6em); 
-            margin: 0; 
-            font-weight: 300; 
-            letter-spacing: 12px;
-            text-transform: uppercase;
-        }
+        .header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .header h1 { font-size: clamp(3em, 10vw, 6em); margin: 0; font-weight: 300; letter-spacing: 12px; text-transform: uppercase; }
 
         .container { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
-
         .section-card { margin-bottom: 120px; }
+        .section-title { font-size: 0.8em; text-transform: uppercase; letter-spacing: 4px; color: var(--navy); margin-bottom: 40px; display: block; opacity: 0.6; }
 
-        .section-title { 
-            font-size: 0.8em; 
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--navy);
-            margin-bottom: 40px;
-            display: block;
-            opacity: 0.6;
-        }
-
-        .content-text { font-size: 1.2em; line-height: 2; }
-
-        .img-frame { 
-            width: 100%; 
-            border: 1px solid rgba(0,0,0,0.08);
-            padding: 10px;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            margin-top: 30px;
-            transition: 0.5s;
-        }
-        .img-frame:hover { transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .content-text { font-size: 1.15em; line-height: 2; }
+        .img-frame { width: 100%; border: 1px solid rgba(0,0,0,0.08); padding: 10px; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-top: 30px; transition: 0.5s; }
+        .img-frame:hover { transform: scale(1.01); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+        .item-box { margin-bottom: 20px; }
 
         .rtl { direction: rtl; text-align: right; }
         .rtl .lang-switch { right: auto; left: 30px; }
         .rtl .header h1 { letter-spacing: 0; }
 
-        .footer { 
-            padding: 100px 20px; 
-            text-align: center; 
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
+        .footer { padding: 100px 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
         [data-lang="ar"] { display: none; }
     </style>
 </head>
@@ -123,10 +71,10 @@
 
 <div class="container">
     <section class="section-card reveal">
-        <span class="section-title"><span class="lang-en">The Profile</span><span class="lang-ar" data-lang="ar">النبذة الشخصية</span></span>
+        <span class="section-title"><span class="lang-en">About Me</span><span class="lang-ar" data-lang="ar">نبذة عني</span></span>
         <div class="content-text">
-            <p class="lang-en">E-commerce and Logistics graduate, driven by digital efficiency and modern aesthetics. Passionate about managing online stores and optimizing operational workflows to enhance customer experience.</p>
-            <p class="lang-ar" data-lang="ar">خريجة تجارة إلكترونية ودعم لوجستي، مهتمة بالكفاءة الرقمية والجماليات الحديثة. شغوفة بإدارة المتاجر الإلكترونية وتحسين سير العمليات لرفع مستوى تجربة العملاء.</p>
+            <p class="lang-en">E-commerce and Logistics graduate, interested in managing online stores and organizing business operations. I have a passion for digital marketing, product management, and order tracking, with a full focus on enhancing customer experience and improving operational efficiency within the e-commerce environment.</p>
+            <p class="lang-ar" data-lang="ar">خريجة تخصص تجارة إلكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.</p>
         </div>
         <img src="cv-image.jpg" alt="CV" class="img-frame">
     </section>
@@ -134,20 +82,50 @@
     <section class="section-card reveal">
         <span class="section-title"><span class="lang-en">Education</span><span class="lang-ar" data-lang="ar">التعليم</span></span>
         <div class="content-text">
-            <p><strong><span class="lang-en">Taibah University (2025)</span><span class="lang-ar" data-lang="ar">جامعة طيبة (٢٠٢٥)</span></strong></p>
+            <p><strong><span class="lang-en">Taibah University - Diploma in E-commerce & Logistics Support (2025)</span>
+            <span class="lang-ar" data-lang="ar">جامعة طيبة - دبلوم تجارة إلكترونية ودعم لوجستي (٢٠٢٥)</span></strong></p>
         </div>
     </section>
 
     <section class="section-card reveal">
-        <span class="section-title"><span class="lang-en">Portfolio</span><span class="lang-ar" data-lang="ar">الأعمال والشهادات</span></span>
+        <span class="section-title"><span class="lang-en">Certificates</span><span class="lang-ar" data-lang="ar">الشهادات</span></span>
         <div class="grid">
-            <div class="project-item">
-                <p><strong><span class="lang-en">Project Alpha</span><span class="lang-ar" data-lang="ar">مشروع التخرج</span></strong></p>
+            <div class="item-box">
+                <p><strong><span class="lang-en">Data Analysis using Excel</span><span class="lang-ar" data-lang="ar">تحليل البيانات بالإكسل - معهد إمداد المعرفة</span></strong></p>
+                <img src="cert1.jpg" class="img-frame">
+            </div>
+            <div class="item-box">
+                <p><strong><span class="lang-en">Supply Chain Management</span><span class="lang-ar" data-lang="ar">إدارة سلاسل الامداد - هدف دروب</span></strong></p>
+                <img src="cert2.jpg" class="img-frame">
+            </div>
+            <div class="item-box">
+                <p><strong><span class="lang-en">E-commerce Comprehensive Guide</span><span class="lang-ar" data-lang="ar">دليلك الشامل إلى التجارة الإلكترونية - هدف دروب</span></strong></p>
+                <img src="cert3.jpg" class="img-frame">
+            </div>
+            <div class="item-box">
+                <p><strong><span class="lang-en">Social Media Marketing Intro</span><span class="lang-ar" data-lang="ar">مقدمة في التسويق عبر وسائل التواصل الاجتماعي</span></strong></p>
+                <img src="cert4.jpg" class="img-frame">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card reveal">
+        <span class="section-title"><span class="lang-en">Projects</span><span class="lang-ar" data-lang="ar">المشاريع</span></span>
+        <div class="grid">
+            <div class="item-box">
+                <p><strong><span class="lang-en">Graduation Project (Artists Website)</span><span class="lang-ar" data-lang="ar">الموقع الإلكتروني (مشروع تخرج)</span></strong></p>
+                <p style="font-size: 0.9em; opacity: 0.8;"><span class="lang-en">A platform to empower artists to sell works online.</span><span class="lang-ar" data-lang="ar">تمكين الرسامين من عرض وبيع أعمالهم وتنظيم المتجر.</span></p>
                 <img src="project1.jpg" class="img-frame">
             </div>
-            <div class="project-item">
-                <p><strong><span class="lang-en">Excellence Award</span><span class="lang-ar" data-lang="ar">شهادة تحليل البيانات</span></strong></p>
-                <img src="cert1.jpg" class="img-frame">
+            <div class="item-box">
+                <p><strong>Tone Coffee</strong></p>
+                <p style="font-size: 0.9em; opacity: 0.8;"><span class="lang-en">Social media management and content creation.</span><span class="lang-ar" data-lang="ar">إدارة حسابات السوشيال ميديا، التصوير، وإنشاء المحتوى.</span></p>
+                <img src="project2.jpg" class="img-frame">
+            </div>
+            <div class="item-box">
+                <p><strong>Hash Flow</strong></p>
+                <p style="font-size: 0.9em; opacity: 0.8;"><span class="lang-en">Marketing content preparation.</span><span class="lang-ar" data-lang="ar">إعداد المحتوى التسويقي للتعامل مع الحساب الرسمي.</span></p>
+                <img src="project3.jpg" class="img-frame">
             </div>
         </div>
     </section>
@@ -158,45 +136,31 @@
 </footer>
 
 <script>
-    // وظيفة تحويل اللغة
     function toggleLanguage() {
         const body = document.body;
         const btn = document.getElementById('langBtn');
         const enEls = document.querySelectorAll('.lang-en');
         const arEls = document.querySelectorAll('.lang-ar');
-
         if (body.classList.contains('rtl')) {
-            body.classList.remove('rtl');
-            body.dir = "ltr";
-            enEls.forEach(el => el.style.display = 'block');
-            arEls.forEach(el => el.style.display = 'none');
+            body.classList.remove('rtl'); body.dir = "ltr";
+            enEls.forEach(el => el.style.display = 'block'); arEls.forEach(el => el.style.display = 'none');
             btn.innerText = "العربية";
         } else {
-            body.classList.add('rtl');
-            body.dir = "rtl";
-            enEls.forEach(el => el.style.display = 'none');
-            arEls.forEach(el => el.style.display = 'block');
+            body.classList.add('rtl'); body.dir = "rtl";
+            enEls.forEach(el => el.style.display = 'none'); arEls.forEach(el => el.style.display = 'block');
             btn.innerText = "English";
         }
     }
-
-    // وظيفة حركة الظهور عند النزول (Scroll Reveal)
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
             var windowHeight = window.innerHeight;
             var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
+            if (elementTop < windowHeight - 150) { reveals[i].classList.add("active"); }
         }
     }
-
     window.addEventListener("scroll", reveal);
-    // لتشغيل الحركة عند التحميل الأول
     window.onload = reveal;
 </script>
-
 </body>
 </html>
