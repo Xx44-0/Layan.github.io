@@ -1,198 +1,128 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Layan Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<title>Portfolio Template</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
-  body { color:#0D1B2A; background:#f5f3ef; line-height:1.6; overflow-x:hidden; }
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Orbitron', sans-serif; scroll-behavior: smooth; }
+  body { background:#0d1117; color:#c0c0c0; line-height:1.6; }
+  a { color:#0ff; text-decoration:none; }
 
-  /* Animated background with moving cells */
-  body::before {
-    content:""; position:fixed; top:0; left:0; width:100%; height:100%;
-    background:#f5f3ef;
-    z-index:-2;
-  }
-  .bg-canvas {
-    position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
-  }
+  /* General Sections */
+  section { padding:60px 20px; max-width:900px; margin:0 auto; border-bottom:1px solid #222; }
+  h1,h2,h3,h4 { color:#0ff; text-shadow:0 0 5px #0ff; }
+  h1 { font-size:3rem; margin-bottom:10px; }
+  h2 { font-size:2rem; margin-bottom:20px; text-align:center; }
+  h3 { font-size:1.3rem; margin-bottom:10px; }
+  p { font-size:1rem; margin-bottom:10px; }
 
-  header {
-    color:#0D1B2A;
-    padding:80px 20px;
-    text-align:center;
-    background: linear-gradient(135deg, #f5f3ef, #0D1B2A);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 20px #0D1B2A inset;
-  }
-  header h1 { font-size:3.5rem; margin-bottom:10px; text-shadow: 0 0 8px #0D1B2A; }
-  header p { font-size:1.3rem; max-width:600px; margin:0 auto; text-shadow: 0 0 6px #0D1B2A; }
-
-  /* Translate button */
-  .translate-btn {
-    position:absolute;
-    top:20px;
-    right:20px;
-    background:#0D1B2A;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:50px;
-    cursor:pointer;
-    font-weight:bold;
-    transition: 0.3s;
-    z-index:10;
-    box-shadow:0 0 15px #0D1B2A;
-  }
-  .translate-btn:hover { background:#1A2A3A; box-shadow:0 0 25px #0D1B2A; }
-
-  section { padding:60px 20px; max-width:900px; margin:0 auto; }
-  h2 { font-size:2.2rem; margin-bottom:30px; text-align:center; color:#0D1B2A; text-shadow:0 0 8px #0D1B2A; }
-
-  .fade-up { opacity:0; transform: translateY(40px); transition: all 0.9s ease; }
-  .fade-up.show { opacity:1; transform: translateY(0); }
+  /* Cover Page */
+  #cover { text-align:center; padding-top:150px; padding-bottom:150px; background:#0b0f1b url('https://www.transparenttextures.com/patterns/circles.png') repeat; }
+  #cover h1 { font-size:4rem; }
+  #cover h2 { font-size:2rem; margin-bottom:15px; }
+  #cover h3 { font-size:1.2rem; color:#0f0; }
 
   /* About Me */
-  .about-me { display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:50px;}
-  .about-me i { font-size:3rem; color:#0D1B2A; margin-bottom:15px; text-shadow:0 0 10px #0D1B2A; }
-  .about-me p { max-width:700px; font-size:1.1rem; line-height:1.5; }
-  .cv-icon { margin-top:15px; font-size:2rem; color:#0D1B2A; cursor:pointer; transition:0.3s; }
-  .cv-icon:hover { color:#1A2A3A; transform: scale(1.2); }
+  #about { background:#111625; border-left:5px solid #0ff; padding:40px; border-radius:12px; position:relative; }
+  #about i { font-size:2rem; margin-bottom:10px; display:block; color:#0ff; }
 
-  /* Skills vertical with icons */
-  .skills { display:flex; flex-direction:column; gap:20px; margin-bottom:50px; }
-  .skill { display:flex; align-items:center; gap:15px; padding:15px 20px; background:#fff; border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition:0.4s; }
-  .skill:hover { transform: translateX(5px); box-shadow:0 8px 18px rgba(0,0,0,0.25); }
-  .skill i { font-size:1.5rem; color:#0D1B2A; text-shadow:0 0 6px #0D1B2A; }
+  /* Skills */
+  .skills { display:flex; flex-direction:column; gap:15px; }
+  .skill { display:flex; align-items:center; gap:15px; padding:12px 20px; background:#111625; border-radius:10px; box-shadow:0 0 10px #0ff; }
+  .skill i { font-size:1.5rem; color:#0ff; }
 
-  /* Certificates & Projects under each other */
-  .card { background:#fff; padding:20px; border-radius:12px; margin-bottom:20px; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition:0.4s; }
-  .card:hover { transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.25); }
+  /* Projects & Certificates */
+  .card { background:#111625; padding:20px; border-radius:12px; margin-bottom:20px; box-shadow:0 0 15px #0ff; transition:0.3s; }
+  .card:hover { transform: scale(1.02); box-shadow:0 0 25px #0ff; }
   .card img { width:100%; border-radius:10px; margin-bottom:12px; }
-  .card h4 { font-size:1.3rem; margin-bottom:8px; color:#0D1B2A; text-shadow:0 0 6px #0D1B2A; }
-  .card p { font-size:1rem; line-height:1.4; color:#333; }
 
-  .contact { text-align:center; margin-top:60px; }
-  .contact a { display:inline-block; background:#0D1B2A; color:white; padding:16px 35px; border-radius:50px; font-weight:bold; font-size:1.1rem; transition:0.3s; box-shadow:0 0 15px #0D1B2A; }
-  .contact a:hover { background:#1A2A3A; box-shadow:0 0 25px #0D1B2A; }
+  /* Contact */
+  .contact { text-align:center; }
+  .contact a { display:inline-block; background:#0ff; color:#0d1117; padding:12px 25px; border-radius:50px; font-weight:bold; transition:0.3s; }
+  .contact a:hover { box-shadow:0 0 15px #0ff; }
 
-  @media(max-width:600px){
-    header h1 { font-size:2.5rem; }
-    header p { font-size:1rem; }
+  /* Neon lines background */
+  body::before {
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: repeating-linear-gradient(45deg, #0ff 0 1px, transparent 1px 20px);
+    opacity:0.05; z-index:-1;
   }
+
 </style>
 </head>
 <body>
 
-<canvas class="bg-canvas"></canvas>
+<!-- Cover Page -->
+<section id="cover">
+  <h1>[Your Name]</h1>
+  <h2>[Your Title]</h2>
+  <h3>[Your Subtitle]</h3>
+</section>
 
-<header>
-  <button class="translate-btn" onclick="translateSite()">Translate</button>
-  <h1>Layan</h1>
-  <p>تجارة إلكترونية ودعم لوجستي</p>
-</header>
-
-<section id="about" class="about-me fade-up">
+<!-- About Me -->
+<section id="about">
   <i class="fas fa-user-circle"></i>
   <h2>About Me</h2>
-  <p>خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.</p>
-  <i class="fas fa-file-alt cv-icon" title="View CV"></i>
+  <p>[Write a short paragraph about yourself: interests, passion, and career goals]</p>
 </section>
 
-<section class="skills fade-up">
-  <div class="skill"><i class="fas fa-laptop-code"></i>Microsoft Office (Excel, PowerPoint, Word)</div>
-  <div class="skill"><i class="fas fa-store"></i>إدارة المتاجر الإلكترونية والدعم اللوجستي</div>
-  <div class="skill"><i class="fas fa-bullhorn"></i>التسويق الرقمي وإدارة الحسابات والمحتوى</div>
-  <div class="skill"><i class="fas fa-chart-line"></i>إدارة الحملات والترويج</div>
-  <div class="skill"><i class="fas fa-box-open"></i>إدارة المنتجات ومتابعة الطلبات</div>
-  <div class="skill"><i class="fas fa-smile"></i>تحسين تجربة العملاء</div>
-  <div class="skill"><i class="fas fa-clock"></i>التنظيم وإدارة الوقت</div>
-  <div class="skill"><i class="fas fa-brain"></i>سرعة التعلم والتكيف</div>
-  <div class="skill"><i class="fas fa-users"></i>التواصل والعمل ضمن فريق</div>
-  <div class="skill"><i class="fas fa-lightbulb"></i>حل المشكلات واتخاذ القرارات</div>
+<!-- Technical Skills -->
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="skill"><i class="fas fa-network-wired"></i> [Skill 1]</div>
+    <div class="skill"><i class="fas fa-shield-alt"></i> [Skill 2]</div>
+    <div class="skill"><i class="fas fa-code"></i> [Skill 3]</div>
+    <div class="skill"><i class="fas fa-server"></i> [Skill 4]</div>
+    <div class="skill"><i class="fas fa-database"></i> [Skill 5]</div>
+  </div>
 </section>
 
-<section class="certificates fade-up">
-  <h2>الشهادات</h2>
-  <div class="card"><img src="images/certificate1.jpg" alt=""><h4>إدارة سلاسل الامداد - هدف دروب</h4></div>
-  <div class="card"><img src="images/certificate2.jpg" alt=""><h4>دليلك الشامل إلى التجارة الإلكترونية - هدف دروب</h4></div>
-  <div class="card"><img src="images/certificate3.jpg" alt=""><h4>مقدمة في التسويق عبر وسائل التواصل الاجتماعي</h4></div>
-  <div class="card"><img src="images/certificate4.jpg" alt=""><h4>تحليل البيانات بالإكسل - معهد إمداد المعرفة</h4></div>
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <img src="[Project1_Image_URL]" alt="Project 1">
+    <h4>[Project 1 Title]</h4>
+    <p>[Project 1 Description]</p>
+  </div>
+  <div class="card">
+    <img src="[Project2_Image_URL]" alt="Project 2">
+    <h4>[Project 2 Title]</h4>
+    <p>[Project 2 Description]</p>
+  </div>
 </section>
 
-<section class="projects fade-up">
-  <h2>المشاريع</h2>
-  <div class="card"><img src="images/project1.jpg" alt=""><h4>الموقع الإلكتروني (مشروع تخرج)</h4><p>إنشاء موقع إلكتروني يهدف إلى تمكين الرسامين من عرض وبيع أعمالهم عبر الإنترنت، يشمل إضافة المنتجات وتنظيمها وتجربة إدارة المتجر، مع التركيز على توفير بيئة تفاعلية تربط الرسامين بمحبي الفن.</p></div>
-  <div class="card"><img src="images/project2.jpg" alt=""><h4>إدارة حسابات السوشيال ميديا – لمقهى Tone coffee</h4><p>التصوير، تصميم البوستات، إنشاء المحتوى، والتفاعل مع الجمهور.</p></div>
-  <div class="card"><img src="images/project3.jpg" alt=""><h4>التعامل مع الحساب الرسمي لهاش فلو (Hash Flow)</h4><p>إعداد المحتوى التسويقي.</p></div>
+<!-- Education -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="card">
+    <h4>Major: [Your Major]</h4>
+    <p>Status: [Completed / Ongoing]</p>
+  </div>
 </section>
 
-<section class="contact fade-up">
-  <h2>تواصل معي</h2>
-  <a href="mailto:your-email@example.com"><i class="fas fa-envelope icon"></i> أرسل لي بريد إلكتروني</a>
+<!-- Contact & Links -->
+<section id="contact">
+  <h2>Contact & Links</h2>
+  <div class="contact">
+    <a href="[Your_Email]"><i class="fas fa-envelope"></i> Email</a>
+    <a href="[LinkedIn_URL]"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="[GitHub_URL]"><i class="fab fa-github"></i> GitHub</a>
+  </div>
 </section>
 
-<script>
-  // Canvas background with moving white cells
-  const canvas = document.querySelector('.bg-canvas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let particles = [];
-  for(let i=0;i<120;i++){
-    particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, dx:(Math.random()-0.5)*0.5, dy:(Math.random()-0.5)*0.5});
-  }
-
-  function animateParticles(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles.forEach(p=>{
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(255,255,255,0.8)';
-      ctx.fill();
-      p.x+=p.dx; p.y+=p.dy;
-      if(p.x<0||p.x>canvas.width) p.dx*=-1;
-      if(p.y<0||p.y>canvas.height) p.dy*=-1;
-    });
-    requestAnimationFrame(animateParticles);
-  }
-  animateParticles();
-  window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
-
-  // Fade-up animation
-  const faders = document.querySelectorAll('.fade-up');
-  const appearOptions = { threshold:0.2, rootMargin:"0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver(function(entries, observer){
-    entries.forEach(entry=>{
-      if(!entry.isIntersecting) return;
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    });
-  },appearOptions);
-  faders.forEach(fader=>appearOnScroll.observe(fader));
-
-  // Translation button
-  function translateSite(){
-    if(document.documentElement.lang==="ar"){
-      document.documentElement.lang="en";
-      document.body.style.direction="ltr";
-      document.querySelector('header p').textContent="E-commerce & Logistics Support";
-      document.querySelector('#about h2').textContent="About Me";
-      document.querySelector('#about p').textContent="Graduate in E-commerce and Logistics Support, interested in managing online stores and organizing business operations. Passionate about digital marketing, product management, and order tracking, focusing on improving customer experience and increasing operational efficiency in e-commerce.";
-    } else {
-      document.documentElement.lang="ar";
-      document.body.style.direction="rtl";
-      document.querySelector('header p').textContent="تجارة إلكترونية ودعم لوجستي";
-      document.querySelector('#about h2').textContent="About Me";
-      document.querySelector('#about p').textContent="خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية. أمتلك شغفاً بالتسويق الرقمي، وإدارة المنتجات، ومتابعة الطلبات، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات ضمن بيئة التجارة الإلكترونية.";
-    }
-  }
-</script>
+<!-- Closing Page -->
+<section id="closing">
+  <h2>Ready for Opportunities</h2>
+  <p>I am prepared for roles in Network Administration, Cyber Security, and Web Development. Open to challenging projects and continuous learning in cutting-edge technologies.</p>
+</section>
 
 </body>
 </html>
