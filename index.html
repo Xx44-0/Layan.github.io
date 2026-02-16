@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Layan Portfolio</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/4c3c1e9a2e.js" crossorigin="anonymous"></script>
 
 <style>
-
-/* ===== Background ===== */
+/* ===== Body & Background ===== */
 body{
   margin:0;
-  font-family:Poppins, sans-serif;
-  background:#f6f7fb;
-  color:#1f2a44;
+  font-family:Poppins,sans-serif;
+  background:#EDEDED;
+  color:#2C3E50;
   overflow-x:hidden;
 }
 
-/* moving neon lines */
 .lines{
   position:fixed;
   width:100%;
@@ -31,61 +28,33 @@ body{
   position:absolute;
   width:2px;
   height:220px;
-  background:linear-gradient(transparent,#7a5cff,#4cc9f0,transparent);
-  animation:move 7s linear infinite;
-  opacity:.35;
+  background:linear-gradient(transparent,#800020,#6A5CFF,transparent);
+  animation:move 8s linear infinite;
+  opacity:.3;
 }
 
-.lines span:nth-child(1){left:10%;}
-.lines span:nth-child(2){left:25%;animation-delay:1s;}
-.lines span:nth-child(3){left:40%;animation-delay:2s;}
-.lines span:nth-child(4){left:60%;animation-delay:1.5s;}
-.lines span:nth-child(5){left:75%;animation-delay:3s;}
-.lines span:nth-child(6){left:90%;animation-delay:2.5s;}
+.lines span:nth-child(1){left:5%;}
+.lines span:nth-child(2){left:20%; animation-delay:1s;}
+.lines span:nth-child(3){left:35%; animation-delay:2s;}
+.lines span:nth-child(4){left:50%; animation-delay:1.5s;}
+.lines span:nth-child(5){left:65%; animation-delay:3s;}
+.lines span:nth-child(6){left:80%; animation-delay:2.5s;}
 
 @keyframes move{
   0%{transform:translateY(-200px);}
   100%{transform:translateY(100vh);}
 }
 
-/* ===== Header ===== */
-header{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  padding:80px;
-}
-
-header img{
-  width:150px;
-  border-radius:18px;
-  box-shadow:0 15px 35px rgba(122,92,255,.25);
-}
-
-.name{
-  margin-top:20px;
-}
-
-.name h1{
-  margin:0;
-  font-size:44px;
-  color:#3b3b98;
-}
-
-.name p{
-  margin:6px 0;
-  color:#6a5cff;
-}
-
-/* buttons */
+/* ===== Top Buttons ===== */
 .top-buttons{
-  position:absolute;
-  top:40px;
-  right:60px;
+  position:fixed;
+  top:30px;
+  right:30px;
+  z-index:10;
 }
 
 button{
-  background:#6a5cff;
+  background:#6A5CFF;
   border:none;
   color:white;
   padding:8px 14px;
@@ -94,160 +63,277 @@ button{
   cursor:pointer;
 }
 
+/* ===== Header ===== */
+header{
+  display:flex;
+  align-items:center;
+  padding:60px 80px;
+  gap:30px;
+}
+
+header img{
+  width:150px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(128,0,32,.25);
+}
+
+.header-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.header-text p:first-child{
+  margin:0;
+  font-size:18px;
+  font-weight:500;
+  color:#4D4D4D;
+}
+
+.header-text h1{
+  margin:6px 0;
+  font-size:44px;
+  font-weight:700;
+  color:#800020;
+}
+
+.header-text p:last-child{
+  margin:0;
+  font-size:18px;
+  font-weight:500;
+  color:#4D4D4D;
+}
+
+.cv-button{
+  margin-top:10px;
+  width:40px;
+  height:40px;
+  background:#6A5CFF;
+  border-radius:8px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  cursor:pointer;
+  transition: all 0.5s ease;
+}
+
+.cv-button:hover{
+  box-shadow: 0 0 20px #6A5CFF, 0 0 30px #9C5FFF, 0 0 40px #B68636;
+  transform: translateY(-5px);
+}
+
 /* ===== Sections ===== */
 section{
   padding:60px 80px;
 }
 
 h2{
-  color:#3b3b98;
+  font-size:36px;
+  font-weight:700;
+  color:#800020;
+  text-align:center;
+  margin-bottom:40px;
 }
 
-/* ===== Skills Cards ===== */
+/* ===== About Me ===== */
+.about-me p{
+  font-size:18px;
+  font-weight:500;
+  max-width:900px;
+  margin:auto;
+  line-height:1.6;
+  text-align:center;
+}
+
+/* ===== Skills ===== */
+.skills-container{
+  display:flex;
+  gap:40px;
+  justify-content:center;
+}
+
 .skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  display:flex;
+  flex-direction:column;
   gap:20px;
 }
 
-.card{
-  background:white;
-  padding:22px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
-  text-align:center;
-  transition:.35s;
+.skills-grid .card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#F5F3EE;
+  padding:12px 16px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,.05);
+  transition: all 0.5s ease;
 }
 
-.card i{
-  font-size:26px;
-  color:#6a5cff;
-  margin-bottom:10px;
+.skills-grid .card:hover{
+  box-shadow:0 0 15px #6A5CFF,0 0 20px #9C5FFF;
+  transform: translateY(-3px);
 }
 
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 20px rgba(106,92,255,.25);
+.skills-grid .card i{
+  color:#6A5CFF;
+  font-size:20px;
+  transition: all 0.5s ease;
+}
+
+.skills-grid .card i:hover{
+  box-shadow: 0 0 15px #6A5CFF,0 0 20px #9C5FFF;
 }
 
 /* ===== Projects ===== */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+.project{
+  margin-bottom:40px;
 }
 
-.projects img{
-  width:100%;
-  border-radius:12px;
-  transition:.3s;
-}
-
-.projects img:hover{
-  transform:scale(1.05);
-}
-
-/* ===== Certificate ===== */
-.certificate img{
+.project img{
   width:300px;
-  border-radius:14px;
+  border-radius:12px;
+  margin-top:12px;
+  transition: all 0.5s ease;
 }
 
-/* ===== Email ===== */
-.email{
+.project img:hover{
+  box-shadow: 0 0 20px #6A5CFF, 0 0 30px #9C5FFF, 0 0 40px #B68636;
+  transform: translateY(-5px);
+}
+
+/* ===== Certificates ===== */
+.certificate{
+  margin-bottom:40px;
+}
+
+.certificate img{
+  width:250px;
+  border-radius:12px;
+  margin-top:12px;
+  transition: all 0.5s ease;
+}
+
+.certificate img:hover{
+  box-shadow: 0 0 20px #6A5CFF, 0 0 30px #9C5FFF, 0 0 40px #B68636;
+  transform: translateY(-5px);
+}
+
+/* ===== Contact ===== */
+.contact{
   text-align:center;
-  font-size:30px;
-  padding:70px;
-  animation:floatMail 3s ease-in-out infinite;
+  font-size:22px;
+  margin-bottom:30px;
 }
 
-@keyframes floatMail{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
+.contact i{
+  font-size:28px;
+  color:#6A5CFF;
+  margin-top:12px;
+  display:block;
+  transition: all 0.5s ease;
+}
+
+.contact i:hover{
+  box-shadow: 0 0 20px #6A5CFF, 0 0 30px #9C5FFF, 0 0 40px #B68636;
 }
 
 /* ===== Scroll Reveal ===== */
 .reveal{
   opacity:0;
   transform:translateY(40px);
-  transition:1.4s;
+  transition:1.2s;
 }
 
 .reveal.show{
   opacity:1;
   transform:translateY(0);
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="lines">
-<span></span><span></span><span></span>
-<span></span><span></span><span></span>
+  <span></span><span></span><span></span>
+  <span></span><span></span><span></span>
 </div>
 
 <div class="top-buttons">
-<button onclick="translatePage()">EN</button>
-<button onclick="downloadCV()">CV</button>
+  <button onclick="translatePage()">EN</button>
+  <div class="cv-button" onclick="downloadCV()"><i class="fa-solid fa-file"></i></div>
 </div>
 
-<header>
-<img src="profile.jpg">
-
-<div class="name">
-<p>Hi I'm</p>
-<h1>Layan</h1>
-<p>خريجة تجارة إلكترونية ودعم لوجستي</p>
-</div>
+<header class="reveal">
+  <img src="profile.jpg">
+  <div class="header-text">
+    <p>Hi I'm</p>
+    <h1>Layan</h1>
+    <p>Graduate in E-Commerce & Logistic Support</p>
+  </div>
 </header>
 
-<section class="reveal">
-<h2>About Me</h2>
-<p>
-خريجة تخصص تجارة إلكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية
-وتحسين تجربة العملاء وتنظيم العمليات التجارية.
-</p>
+<section class="about-me reveal">
+  <h2>About Me</h2>
+  <p>Graduate in E-Commerce & Logistic Support, passionate about digital marketing, product management, order tracking, and improving customer experience while enhancing operational efficiency in e-commerce environments.</p>
 </section>
 
 <section class="reveal">
-<h2>Skills</h2>
-
-<div class="skills-grid">
-<div class="card"><i class="fa-solid fa-laptop"></i>Microsoft Office</div>
-<div class="card"><i class="fa-solid fa-bullhorn"></i>التسويق الرقمي</div>
-<div class="card"><i class="fa-solid fa-store"></i>إدارة المتاجر</div>
-<div class="card"><i class="fa-solid fa-box"></i>إدارة المنتجات</div>
-<div class="card"><i class="fa-solid fa-users"></i>العمل الجماعي</div>
-<div class="card"><i class="fa-solid fa-lightbulb"></i>حل المشكلات</div>
-</div>
-
-</section>
-
-<section class="reveal certificate">
-<h2>Certificates</h2>
-<img src="certificate.jpg">
+  <h2>Skills</h2>
+  <div class="skills-container">
+    <div class="skills-grid">
+      <div class="card"><i class="fa-solid fa-laptop"></i>Microsoft Office</div>
+      <div class="card"><i class="fa-solid fa-store"></i>E-commerce Management</div>
+      <div class="card"><i class="fa-solid fa-box"></i>Product Management</div>
+    </div>
+    <div class="skills-grid">
+      <div class="card"><i class="fa-solid fa-users"></i>Teamwork</div>
+      <div class="card"><i class="fa-solid fa-lightbulb"></i>Problem Solving</div>
+      <div class="card"><i class="fa-solid fa-clock"></i>Time Management</div>
+    </div>
+  </div>
 </section>
 
 <section class="reveal">
-<h2>Projects</h2>
-
-<div class="projects">
-<img src="p1.jpg">
-<img src="p2.jpg">
-<img src="p3.jpg">
-<img src="p4.jpg">
-<img src="p5.jpg">
-<img src="p6.jpg">
-</div>
-
+  <h2>Projects</h2>
+  <div class="project">
+    <h3>Art Website (Graduation Project)</h3>
+    <p>Created a website to enable artists to showcase and sell their work online, including product management and interactive experience.</p>
+    <img src="p1.jpg">
+  </div>
+  <div class="project">
+    <h3>Tone Coffee Social Media Management</h3>
+    <p>Photography, post design, content creation, and audience interaction.</p>
+    <img src="p2.jpg">
+  </div>
+  <div class="project">
+    <h3>Hash Flow Official Account</h3>
+    <p>Marketing content preparation.</p>
+    <img src="p3.jpg">
+  </div>
 </section>
 
-<div class="email">
-<a href="mailto:your@email.com"><i class="fa-solid fa-envelope"></i></a>
-</div>
+<section class="reveal">
+  <h2>Certificates</h2>
+  <div class="certificate">
+    <h3>Supply Chain Management - Hadaf Drop</h3>
+    <img src="certificate1.jpg">
+  </div>
+  <div class="certificate">
+    <h3>Comprehensive Guide to E-Commerce - Hadaf Drop</h3>
+    <img src="certificate2.jpg">
+  </div>
+  <div class="certificate">
+    <h3>Intro to Social Media Marketing</h3>
+    <img src="certificate3.jpg">
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Contact</h2>
+  <div class="contact">
+    <i class="fa-solid fa-envelope"></i>
+    <p>your@email.com</p>
+  </div>
+</section>
 
 <script>
 const items=document.querySelectorAll(".reveal");
@@ -260,7 +346,7 @@ window.addEventListener("scroll",()=>{
 });
 
 function translatePage(){
-  alert("English version coming soon");
+  alert("English/Arabic translation coming soon");
 }
 
 function downloadCV(){
