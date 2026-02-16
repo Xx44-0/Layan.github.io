@@ -4,125 +4,174 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Layan Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/4c3c1e9a2e.js" crossorigin="anonymous"></script>
 
 <style>
 
-/* ===== Body & Animated Background ===== */
+/* ===== Background ===== */
 body{
   margin:0;
   font-family:Poppins, sans-serif;
-  background: linear-gradient(-45deg,#f5f3ee,#e8f0fa,#f5f3ee,#eef3f9);
-  background-size:400% 400%;
-  animation:bgMove 15s ease infinite;
-  color:#2c3e50;
+  background:#f6f7fb;
+  color:#1f2a44;
   overflow-x:hidden;
 }
 
-@keyframes bgMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* Floating circles */
-.floating span{
+/* moving neon lines */
+.lines{
   position:fixed;
-  width:120px;
-  height:120px;
-  background:rgba(70,110,170,0.08);
-  border-radius:50%;
-  animation:float 20s ease-in-out infinite;
+  width:100%;
+  height:100%;
+  z-index:-1;
 }
 
-.floating span:nth-child(1){top:10%;left:5%;}
-.floating span:nth-child(2){top:60%;left:80%;animation-duration:25s;}
-.floating span:nth-child(3){top:40%;left:55%;animation-duration:18s;}
-.floating span:nth-child(4){top:80%;left:20%;animation-duration:22s;}
-
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-40px);}
-  100%{transform:translateY(0);}
+.lines span{
+  position:absolute;
+  width:2px;
+  height:220px;
+  background:linear-gradient(transparent,#7a5cff,#4cc9f0,transparent);
+  animation:move 7s linear infinite;
+  opacity:.35;
 }
 
-/* ===== Layout ===== */
+.lines span:nth-child(1){left:10%;}
+.lines span:nth-child(2){left:25%;animation-delay:1s;}
+.lines span:nth-child(3){left:40%;animation-delay:2s;}
+.lines span:nth-child(4){left:60%;animation-delay:1.5s;}
+.lines span:nth-child(5){left:75%;animation-delay:3s;}
+.lines span:nth-child(6){left:90%;animation-delay:2.5s;}
+
+@keyframes move{
+  0%{transform:translateY(-200px);}
+  100%{transform:translateY(100vh);}
+}
+
+/* ===== Header ===== */
 header{
   display:flex;
-  align-items:center;
-  gap:30px;
+  flex-direction:column;
+  align-items:flex-start;
   padding:80px;
 }
 
 header img{
   width:150px;
-  border-radius:50%;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(122,92,255,.25);
+}
+
+.name{
+  margin-top:20px;
 }
 
 .name h1{
   margin:0;
-  font-size:42px;
+  font-size:44px;
+  color:#3b3b98;
 }
 
 .name p{
   margin:6px 0;
-  color:#4a6fa5;
+  color:#6a5cff;
 }
 
+/* buttons */
+.top-buttons{
+  position:absolute;
+  top:40px;
+  right:60px;
+}
+
+button{
+  background:#6a5cff;
+  border:none;
+  color:white;
+  padding:8px 14px;
+  border-radius:8px;
+  margin-left:10px;
+  cursor:pointer;
+}
+
+/* ===== Sections ===== */
 section{
-  padding:70px 80px;
+  padding:60px 80px;
 }
 
 h2{
-  color:#1f3a5f;
+  color:#3b3b98;
 }
 
-/* ===== Skills ===== */
-.skills{
-  display:flex;
-  justify-content:space-between;
-  gap:50px;
+/* ===== Skills Cards ===== */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
 }
 
-.skills ul{
-  list-style:none;
-  padding:0;
+.card{
+  background:white;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  text-align:center;
+  transition:.35s;
 }
 
-.skills li{
-  margin:12px 0;
+.card i{
+  font-size:26px;
+  color:#6a5cff;
+  margin-bottom:10px;
 }
 
-/* ===== Projects Grid ===== */
-.grid{
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 20px rgba(106,92,255,.25);
+}
+
+/* ===== Projects ===== */
+.projects{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
-  margin-top:20px;
 }
 
-.grid img{
+.projects img{
   width:100%;
   border-radius:12px;
   transition:.3s;
 }
 
-.grid img:hover{
-  transform:scale(1.06);
+.projects img:hover{
+  transform:scale(1.05);
 }
 
 /* ===== Certificate ===== */
 .certificate img{
-  width:320px;
-  border-radius:12px;
-  margin-top:20px;
+  width:300px;
+  border-radius:14px;
+}
+
+/* ===== Email ===== */
+.email{
+  text-align:center;
+  font-size:30px;
+  padding:70px;
+  animation:floatMail 3s ease-in-out infinite;
+}
+
+@keyframes floatMail{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
 }
 
 /* ===== Scroll Reveal ===== */
 .reveal{
   opacity:0;
   transform:translateY(40px);
-  transition:1.6s ease;
+  transition:1.4s;
 }
 
 .reveal.show{
@@ -130,34 +179,24 @@ h2{
   transform:translateY(0);
 }
 
-/* ===== Email ===== */
-.email{
-  text-align:center;
-  font-size:28px;
-  padding:60px;
-  animation:mailFloat 3s ease-in-out infinite;
-}
-
-@keyframes mailFloat{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="floating">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+<div class="lines">
+<span></span><span></span><span></span>
+<span></span><span></span><span></span>
+</div>
+
+<div class="top-buttons">
+<button onclick="translatePage()">EN</button>
+<button onclick="downloadCV()">CV</button>
 </div>
 
 <header>
 <img src="profile.jpg">
+
 <div class="name">
 <p>Hi I'm</p>
 <h1>Layan</h1>
@@ -169,35 +208,20 @@ h2{
 <h2>About Me</h2>
 <p>
 خريجة تخصص تجارة إلكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية
-وتحسين تجربة العملاء وتنظيم العمليات التجارية باحترافية.
+وتحسين تجربة العملاء وتنظيم العمليات التجارية.
 </p>
 </section>
 
 <section class="reveal">
 <h2>Skills</h2>
 
-<div class="skills">
-<div>
-<h3>Technical</h3>
-<ul>
-<li>Microsoft Office</li>
-<li>إدارة المتاجر الإلكترونية</li>
-<li>التسويق الرقمي</li>
-<li>إدارة الحملات</li>
-<li>إدارة المنتجات</li>
-</ul>
-</div>
-
-<div>
-<h3>Personal</h3>
-<ul>
-<li>التنظيم وإدارة الوقت</li>
-<li>سرعة التعلم</li>
-<li>التواصل والعمل ضمن فريق</li>
-<li>حل المشكلات</li>
-<li>اتخاذ القرار</li>
-</ul>
-</div>
+<div class="skills-grid">
+<div class="card"><i class="fa-solid fa-laptop"></i>Microsoft Office</div>
+<div class="card"><i class="fa-solid fa-bullhorn"></i>التسويق الرقمي</div>
+<div class="card"><i class="fa-solid fa-store"></i>إدارة المتاجر</div>
+<div class="card"><i class="fa-solid fa-box"></i>إدارة المنتجات</div>
+<div class="card"><i class="fa-solid fa-users"></i>العمل الجماعي</div>
+<div class="card"><i class="fa-solid fa-lightbulb"></i>حل المشكلات</div>
 </div>
 
 </section>
@@ -210,7 +234,7 @@ h2{
 <section class="reveal">
 <h2>Projects</h2>
 
-<div class="grid">
+<div class="projects">
 <img src="p1.jpg">
 <img src="p2.jpg">
 <img src="p3.jpg">
@@ -222,19 +246,26 @@ h2{
 </section>
 
 <div class="email">
-<a href="mailto:your@email.com">✉️</a>
+<a href="mailto:your@email.com"><i class="fa-solid fa-envelope"></i></a>
 </div>
 
 <script>
-const elements=document.querySelectorAll(".reveal");
-
+const items=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
-  elements.forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
+  items.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-100){
       el.classList.add("show");
     }
   });
 });
+
+function translatePage(){
+  alert("English version coming soon");
+}
+
+function downloadCV(){
+  window.open("cv.pdf");
+}
 </script>
 
 </body>
