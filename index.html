@@ -1,183 +1,168 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Template</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<title>Layan Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo', sans-serif; scroll-behavior: smooth; }
-body { background:#F5F3EF; color:#0D1B2A; line-height:1.6; overflow-x:hidden; }
-a { color:#0D1B2A; text-decoration:none; }
-
-/* Background animation */
-body::before {
-  content:"";
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: radial-gradient(circle, rgba(245,243,239,0.3) 2px, transparent 2px);
-  background-size: 50px 50px;
-  animation: moveBG 60s linear infinite;
-  z-index:-1;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f7f6f2;
+  color: #2c3e50;
 }
-@keyframes moveBG { 0%{background-position:0 0;} 100%{background-position:1000px 1000px;} }
 
-/* Sections */
-section { padding:60px 20px; max-width:900px; margin:0 auto; border-bottom:1px solid #ddd; opacity:0; transform: translateY(30px); transition: 1s ease; }
-section.visible { opacity:1; transform: translateY(0); }
+/* ===== Header ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+}
 
-/* Animations */
-@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0px); } }
-.float { animation: float 3s ease-in-out infinite; }
-.pulse { animation: pulse 2s infinite; }
-@keyframes pulse { 0% { transform: scale(1); opacity:1; } 50% { transform: scale(1.05); opacity:0.8; } 100% { transform: scale(1); opacity:1; } }
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
 
-/* Headings */
-h1,h2,h3,h4 { color:#0D1B2A; }
-h1 { font-size:3rem; margin-bottom:10px; text-align:center; animation: float 4s ease-in-out infinite; }
-h2 { font-size:2rem; margin-bottom:20px; text-align:center; }
+.profile img {
+  width: 150px;
+  border-radius: 50%;
+}
 
-/* Cover */
-#cover { text-align:center; padding-top:120px; padding-bottom:120px; }
-#cover h2 { margin-bottom:5px; }
-#cover h3 { font-size:1.2rem; color:#4B6584; }
+.name-text h1 {
+  margin: 0;
+  font-size: 38px;
+}
 
-/* About Me */
-#about { background:#EFEFEF; border-radius:12px; padding:30px; position:relative; margin-bottom:40px; }
-#about i { font-size:2rem; color:#0D1B2A; margin-bottom:10px; display:block; animation: float 3s ease-in-out infinite; }
+.name-text p {
+  margin: 5px 0;
+  color: #4a6fa5;
+}
 
-/* Skills */
-.skills-container { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:40px; }
-.skills-column { flex:1; display:flex; flex-direction:column; gap:10px; }
-.skill { display:flex; align-items:center; gap:10px; padding:10px 15px; background:#fff; border-radius:8px; box-shadow:0 0 5px rgba(0,0,0,0.1); animation: float 4s ease-in-out infinite; }
-.skill i { font-size:1.2rem; color:#0D1B2A; }
+/* ===== Sections ===== */
+section {
+  padding: 60px;
+}
 
-/* Cards */
-.card { background:#fff; padding:20px; border-radius:12px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:0.3s; animation: float 5s ease-in-out infinite; }
-.card:hover { transform: scale(1.05); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
-.card img { width:100%; border-radius:10px; margin-bottom:10px; }
+h2 {
+  color: #1f3a5f;
+}
 
-/* Contact */
-#contact { text-align:center; margin-bottom:60px; }
-#contact a { display:inline-block; background:#0D1B2A; color:#fff; padding:12px 25px; border-radius:50px; font-weight:bold; transition:0.3s; animation: float 3s ease-in-out infinite; }
-#contact a:hover { background:#4B6584; }
+/* ===== Skills layout ===== */
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
 
-/* CV Icon */
-.cv-icon { display:block; text-align:center; margin-top:15px; font-size:2rem; color:#0D1B2A; animation: pulse 2s infinite; }
+.skills-container ul {
+  list-style: none;
+  padding: 0;
+}
 
-/* Translation button */
-#translate { position:fixed; top:20px; right:20px; background:#0D1B2A; color:#fff; padding:10px 15px; border-radius:8px; cursor:pointer; z-index:10; transition:0.3s; animation: float 3s ease-in-out infinite; }
-#translate:hover { background:#4B6584; }
+.skills-container li {
+  margin: 10px 0;
+}
+
+/* ===== Projects images grid ===== */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.image-grid img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ===== Email icon ===== */
+.email-icon {
+  text-align: center;
+  font-size: 30px;
+  padding: 40px;
+}
 </style>
 </head>
+
 <body>
 
-<!-- Translation Button -->
-<div id="translate">EN</div>
-
-<!-- Cover Page -->
-<section id="cover">
-  <h1>[Your Name]</h1>
-  <h2>تجارة إلكترونية ودعم لوجستي</h2>
-  <h3>[Subtitle]</h3>
-</section>
-
-<!-- About Me -->
-<section id="about">
-  <i class="fas fa-user-circle cv-icon"></i>
-  <h2>About Me</h2>
-  <p>[Write a short paragraph about yourself: interests, passion, and career goals]</p>
-</section>
-
-<!-- Skills -->
-<section id="skills">
-  <h2>المهارات</h2>
-  <div class="skills-container">
-    <!-- Right Column: Technical -->
-    <div class="skills-column">
-      <div class="skill"><i class="fas fa-laptop-code"></i> [مهارة تقنية 1]</div>
-      <div class="skill"><i class="fas fa-project-diagram"></i> [مهارة تقنية 2]</div>
-      <div class="skill"><i class="fas fa-chart-line"></i> [مهارة تقنية 3]</div>
-    </div>
-    <!-- Left Column: Personal -->
-    <div class="skills-column">
-      <div class="skill"><i class="fas fa-user-clock"></i> [مهارة شخصية 1]</div>
-      <div class="skill"><i class="fas fa-users"></i> [مهارة شخصية 2]</div>
-      <div class="skill"><i class="fas fa-lightbulb"></i> [مهارة شخصية 3]</div>
+<header>
+  <div class="profile">
+    <img src="profile.jpg">
+    <div class="name-text">
+      <p>Hi I'm</p>
+      <h1>Layan</h1>
+      <p>تجارة إلكترونية ودعم لوجستي</p>
     </div>
   </div>
+</header>
+
+<section>
+<h2>About Me</h2>
+<p>
+خريجة تخصص تجارة الكترونية ودعم لوجستي، مهتمة بإدارة المتاجر الإلكترونية وتنظيم العمليات التجارية.
+</p>
 </section>
 
-<!-- Certificates -->
-<section id="certificates">
-  <h2>الشهادات</h2>
-  <div class="card">
-    <img src="[Certificate1_Image_URL]" alt="Certificate 1">
-    <h4>[Certificate 1 Title]</h4>
-    <p>[Certificate 1 Description]</p>
-  </div>
-  <div class="card">
-    <img src="[Certificate2_Image_URL]" alt="Certificate 2">
-    <h4>[Certificate 2 Title]</h4>
-    <p>[Certificate 2 Description]</p>
-  </div>
+<section>
+<h2>Skills</h2>
+
+<div class="skills-container">
+
+<div>
+<h3>Technical Skills</h3>
+<ul>
+<li>Microsoft Office</li>
+<li>إدارة المتاجر الإلكترونية</li>
+<li>التسويق الرقمي</li>
+<li>إدارة الحملات</li>
+<li>إدارة المنتجات</li>
+</ul>
+</div>
+
+<div>
+<h3>Personal Skills</h3>
+<ul>
+<li>التنظيم</li>
+<li>سرعة التعلم</li>
+<li>التواصل</li>
+<li>حل المشكلات</li>
+<li>العمل ضمن فريق</li>
+</ul>
+</div>
+
+</div>
 </section>
 
-<!-- Projects -->
-<section id="projects">
-  <h2>المشاريع</h2>
-  <div class="card">
-    <img src="[Project1_Image_URL]" alt="Project 1">
-    <h4>[Project 1 Title]</h4>
-    <p>[Project 1 Description]</p>
-  </div>
-  <div class="card">
-    <img src="[Project2_Image_URL]" alt="Project 2">
-    <h4>[Project 2 Title]</h4>
-    <p>[Project 2 Description]</p>
-  </div>
+<section>
+<h2>Certificates</h2>
+<img src="certificate.jpg" width="300">
 </section>
 
-<!-- Education -->
-<section id="education">
-  <h2>التعليم</h2>
-  <div class="card">
-    <h4>Major: [Your Major]</h4>
-    <p>Status: [Completed / Ongoing]</p>
-  </div>
+<section>
+<h2>Projects</h2>
+
+<div class="image-grid">
+<img src="p1.jpg">
+<img src="p2.jpg">
+<img src="p3.jpg">
+<img src="p4.jpg">
+<img src="p5.jpg">
+<img src="p6.jpg">
+</div>
+
 </section>
 
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <a href="mailto:[Your_Email]"><i class="fas fa-envelope"></i> Email</a>
-</section>
-
-<!-- Closing -->
-<section id="closing">
-  <h2>جاهزة للفرص</h2>
-  <p>Prepared for opportunities in E-commerce, Logistics Support, and Digital Marketing. Open to new projects and continuous learning.</p>
-</section>
-
-<script>
-// Fade-up animation on scroll
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      sec.classList.add("visible");
-    }
-  });
-});
-
-// Translation button functionality (simple placeholder)
-document.getElementById("translate").addEventListener("click", () => {
-  alert("Translation feature coming soon!");
-});
-</script>
+<div class="email-icon">
+<a href="mailto:your@email.com">✉️</a>
+</div>
 
 </body>
 </html>
