@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتفوليو احترافي</title>
+    <title>البورتفوليو الاحترافي</title>
     <style>
-        /* لوحة الألوان المعتمدة من الصورة */
+        /* لوحة الألوان المعتمدة */
         :root {
-            --light-cream: #DBD3C8;    /* لون الخلفية الأساسي */
-            --sage-mist: #CDC6BA;     /* للتفاصيل والحدود الناعمة */
-            --warm-cocoa: #AD9C8A;    /* لون المهارات والعناصر الثانوية */
-            --slate-blue: #7C929E;    /* لون التفاعل (Hover) والأزرار */
-            --deep-coffee: #5D4D34;   /* لون الهيدر والنصوص الرئيسية */
+            --pearl-gray: #D0D1D1;    /* لون النصوص المساعدة والخلفيات الفاتحة */
+            --taupe-gray: #9C8E84;    /* لون اللمسات الثانوية */
+            --burnt-sienna: #894F36;  /* لون التفاعل (Hover) والأزرار */
+            --coffee-bean: #513629;   /* لون العناوين والحدود */
+            --deep-chocolate: #261C13; /* اللون الأساسي للهيدر والنصوص العميقة */
+            --bg-cream: #F9F7F5;      /* خلفية كريمية فاتحة جداً لراحة العين */
         }
 
         body {
-            background-color: var(--light-cream);
-            color: var(--deep-coffee);
+            background-color: var(--bg-cream);
+            color: var(--deep-chocolate);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
+        /* الهيدر */
         header {
-            background-color: var(--deep-coffee);
-            color: var(--light-cream);
-            padding: 70px 20px;
+            background-color: var(--deep-chocolate);
+            color: var(--pearl-gray);
+            padding: 80px 20px;
             text-align: center;
-            border-bottom: 8px solid var(--warm-cocoa);
+            border-bottom: 8px solid var(--burnt-sienna);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.8rem;
+            font-size: 3rem;
             letter-spacing: 1px;
         }
 
         header p {
-            color: var(--sage-mist);
-            font-size: 1.2rem;
+            color: var(--taupe-gray);
+            font-size: 1.3rem;
             margin-top: 10px;
             font-weight: bold;
         }
@@ -51,85 +53,89 @@
         }
 
         h2 {
-            border-right: 6px solid var(--warm-cocoa);
+            border-right: 6px solid var(--burnt-sienna);
             padding-right: 15px;
-            color: var(--deep-coffee);
+            color: var(--coffee-bean);
             margin-bottom: 35px;
+            font-size: 2rem;
         }
 
-        /* قسم المهارات */
+        /* المهارات */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 60px;
         }
 
         .skill-item {
-            background-color: var(--warm-cocoa);
+            background-color: var(--coffee-bean);
             color: white;
-            padding: 10px 22px;
+            padding: 12px 28px;
             border-radius: 4px;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .skill-item:hover {
-            background-color: var(--slate-blue);
+            background-color: var(--burnt-sienna);
             transform: translateY(-3px);
         }
 
-        /* قسم المشاريع */
+        /* المشاريع */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .project-card {
             background-color: white;
-            border: 1px solid var(--sage-mist);
+            border: 1px solid var(--pearl-gray);
             border-radius: 12px;
             padding: 30px;
-            transition: 0.4s ease;
-            box-shadow: 0 4px 6px rgba(93, 77, 52, 0.05);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 6px rgba(38, 28, 19, 0.05);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--slate-blue);
-            box-shadow: 0 15px 30px rgba(124, 146, 158, 0.15);
+            transform: translateY(-12px);
+            border-color: var(--burnt-sienna);
+            box-shadow: 0 20px 40px rgba(38, 28, 19, 0.1);
         }
 
         .project-card h3 {
-            color: var(--deep-coffee);
+            color: var(--deep-chocolate);
             margin-top: 0;
+            font-size: 1.5rem;
         }
 
         /* الأزرار */
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: var(--deep-coffee);
+            margin-top: 25px;
+            padding: 12px 30px;
+            background-color: var(--burnt-sienna);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-weight: bold;
             text-align: center;
             transition: 0.3s;
         }
 
         .btn:hover {
-            background-color: var(--slate-blue);
+            background-color: var(--deep-chocolate);
         }
 
+        /* تذييل الصفحة */
         footer {
             text-align: center;
-            padding: 40px;
-            color: var(--deep-coffee);
+            padding: 60px;
+            color: var(--taupe-gray);
             font-size: 0.9rem;
-            border-top: 1px solid var(--warm-cocoa);
+            border-top: 1px solid var(--pearl-gray);
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -137,45 +143,57 @@
 
 <header>
     <h1>بورتفوليو إبداعي</h1>
-    <p>تصوير منتجات احترافي | إدارة محتوى هاش فلو | أخصائية تجارة إلكترونية</p>
+    <p>أخصائية تجارة إلكترونية | إدارة محتوى هاش فلو | مصورة منتجات</p>
 </header>
 
 <div class="container">
-    <section>
+    
+    <section id="skills">
         <h2>المهارات الاحترافية</h2>
         <div class="skills-list">
             <div class="skill-item">تصوير Lifestyle للمنتجات</div>
-            <div class="skill-item">إدارة محتوى "هاش فلو"</div>
-            <div class="skill-item">الدعم اللوجستي</div>
-            <div class="skill-item">صناعة فيديوهات تيك توك</div>
+            <div class="skill-item">إدارة محتوى هاش فلو (Hash Flow)</div>
+            <div class="skill-item">الدعم اللوجستي للتجارة الإلكترونية</div>
             <div class="skill-item">تحرير الفيديو الإبداعي</div>
+            <div class="skill-item">استراتيجيات TikTok</div>
         </div>
     </section>
 
-    <section>
+    <section id="projects">
         <h2>أبرز المشاريع</h2>
         <div class="projects-grid">
+            
             <div class="project-card">
-                <h3>هاش فلو (Hash Flow)</h3>
-                <p>صناعة وإدارة المحتوى التسويقي للأداة لتعزيز الإنتاجية الرقمية.</p>
-                <a href="#" class="btn">معاينة العمل</a>
+                <div>
+                    <h3>هاش فلو (Hash Flow)</h3>
+                    <p>صناعة استراتيجية المحتوى المرئي وإدارة الحساب الرسمي لتعزيز الإنتاجية الرقمية.</p>
+                </div>
+                <a href="#" class="btn">عرض العمل</a>
             </div>
+
             <div class="project-card">
-                <h3>تصوير كوفي شوب</h3>
-                <p>جلسات تصوير احترافية بنمط عصري يبرز جمالية المنتجات.</p>
-                <a href="#" class="btn">معرض الصور</a>
+                <div>
+                    <h3>تصوير فوتوغرافي</h3>
+                    <p>إخراج فني وجلسات تصوير متخصصة للكوفيهات والسيارات بأنماط عصرية.</p>
+                </div>
+                <a href="#" class="btn">المعرض الفني</a>
             </div>
+
             <div class="project-card">
-                <h3>دبلوم التجارة الإلكترونية</h3>
-                <p>مشاريع تحليل سلاسل الإمداد والدعم اللوجستي للمتاجر.</p>
+                <div>
+                    <h3>دبلوم التجارة الإلكترونية</h3>
+                    <p>مشاريع تحليل سلاسل الإمداد والدعم اللوجستي للمتاجر الرقمية.</p>
+                </div>
                 <a href="#" class="btn">التفاصيل</a>
             </div>
+
         </div>
     </section>
+
 </div>
 
 <footer>
-    <p>© 2026 جميع الأعمال محفوظة</p>
+    <p>© 2026 جميع الحقوق محفوظة لعملكِ الإبداعي</p>
 </footer>
 
 </body>
