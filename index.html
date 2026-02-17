@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>البورتفوليو الإحترافي</title>
     <style>
-        /* لوحة الألوان الجديدة من الصورة المرفقة */
+        /* لوحة الألوان الجديدة من الصورة الأخيرة */
         :root {
-            --alabaster: #E8DFD8;     /* لون الخلفية الأساسي */
-            --ocean-teal: #02343D;    /* لون العناوين والاحترافية */
-            --dusty-rose: #CBA4A0;    /* لون التباين الناعم */
-            --mulberry: #8B4A5D;      /* لون الأزرار والتفاعلات */
-            --slate-blue: #7B8C99;    /* لون النصوص المساعدة والحدود */
+            --crimson-red: #6B101C;   /* اللون الجريء للأزرار والتفاعلات */
+            --frosted-blue: #94A2B1;  /* لون هادئ للخلفيات الثانوية */
+            --sage-gray: #647B6E;     /* لون العناوين والاحترافية */
+            --moss-green: #374233;    /* لون الهيدر والنصوص العميقة */
+            --pale-mist: #D7DDE1;     /* لون الخلفية الأساسي النظيف */
         }
 
         body {
-            background-color: var(--alabaster);
-            color: var(--ocean-teal);
+            background-color: var(--pale-mist);
+            color: var(--moss-green);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
+        /* الهيدر (رأس الصفحة) */
         header {
-            background-color: var(--ocean-teal);
-            color: var(--alabaster);
+            background-color: var(--moss-green);
+            color: var(--pale-mist);
             padding: 70px 20px;
             text-align: center;
-            border-bottom: 8px solid var(--mulberry);
+            border-bottom: 8px solid var(--crimson-red);
         }
 
         header h1 {
@@ -38,9 +39,10 @@
         }
 
         header p {
-            color: var(--dusty-rose);
+            color: var(--frosted-blue);
             font-size: 1.3rem;
             margin-top: 10px;
+            font-weight: bold;
         }
 
         .container {
@@ -50,14 +52,14 @@
         }
 
         h2 {
-            border-right: 6px solid var(--mulberry);
+            border-right: 6px solid var(--sage-gray);
             padding-right: 15px;
-            color: var(--ocean-teal);
+            color: var(--moss-green);
             margin-bottom: 35px;
             font-size: 2rem;
         }
 
-        /* المهارات */
+        /* قسم المهارات */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
@@ -66,20 +68,20 @@
         }
 
         .skill-item {
-            background-color: var(--slate-blue);
+            background-color: var(--sage-gray);
             color: white;
             padding: 12px 25px;
-            border-radius: 5px;
+            border-radius: 4px;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .skill-item:hover {
-            background-color: var(--mulberry);
+            background-color: var(--crimson-red);
             transform: scale(1.05);
         }
 
-        /* المشاريع */
+        /* قسم المشاريع */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -88,8 +90,8 @@
 
         .project-card {
             background-color: white;
-            border: 1px solid var(--slate-blue);
-            border-radius: 15px;
+            border: 1px solid var(--frosted-blue);
+            border-radius: 12px;
             padding: 30px;
             transition: all 0.4s ease;
             display: flex;
@@ -100,39 +102,42 @@
 
         .project-card:hover {
             transform: translateY(-12px);
-            border-color: var(--mulberry);
-            box-shadow: 0 20px 40px rgba(139, 74, 93, 0.1);
+            border-color: var(--crimson-red);
+            box-shadow: 0 20px 40px rgba(107, 16, 28, 0.1);
         }
 
         .project-card h3 {
-            color: var(--ocean-teal);
+            color: var(--sage-gray);
             margin-top: 0;
             font-size: 1.5rem;
         }
 
+        /* الأزرار */
         .btn {
             display: inline-block;
             margin-top: 25px;
             padding: 12px 28px;
-            background-color: var(--mulberry);
+            background-color: var(--crimson-red);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: bold;
             text-align: center;
             transition: 0.3s;
         }
 
         .btn:hover {
-            background-color: var(--ocean-teal);
+            background-color: var(--moss-green);
+            transform: translateY(-2px);
         }
 
+        /* تذييل الصفحة */
         footer {
             text-align: center;
             padding: 50px;
-            color: var(--slate-blue);
+            color: var(--sage-gray);
             font-size: 0.9rem;
-            border-top: 1px solid var(--dusty-rose);
+            border-top: 1px solid var(--frosted-blue);
             margin-top: 40px;
         }
     </style>
@@ -140,7 +145,7 @@
 <body>
 
 <header>
-    <h1>[ضع اسمك هنا]</h1>
+    <h1>[اسمك هنا]</h1>
     <p>مصور فوتوغرافي | منشئ محتوى تسويقي | أخصائي تجارة إلكترونية</p>
 </header>
 
@@ -158,13 +163,13 @@
     </section>
 
     <section id="projects">
-        <h2>المشاريع</h2>
+        <h2>أبرز المشاريع</h2>
         <div class="projects-grid">
             
             <div class="project-card">
                 <div>
                     <h3>هاش فلو (Hash Flow)</h3>
-                    <p>صناعة استراتيجية محتوى مرئي وإدارة الحساب الرسمي لزيادة الوعي بالأداة.</p>
+                    <p>صناعة استراتيجية محتوى مرئي وإدارة الحساب الرسمي لتعزيز الإنتاجية الرقمية.</p>
                 </div>
                 <a href="#" class="btn">عرض العمل</a>
             </div>
