@@ -1,44 +1,34 @@
-:root {
-  /* استبدل الأكواد بالدرجات التي اخترتها */
-  --primary-color: #D4AF37;    /* اللون الأساسي (مثلاً الذهبي) */
-  --secondary-color: #2C2C2C;  /* اللون الثانوي (الرمادي الغامق) */
-  --accent-color: #F5F5DC;     /* لون التباين (البيج أو الكريمي) */
-  --bg-color: #FFFFFF;         /* لون الخلفية الرئيسي */
-  --text-color: #333333;       /* لون النصوص */
-}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>معرض أعمالي</title>
+</head>
+<body>
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+<header>
+    <h1>بورتفوليو احترافي</h1>
+    <p>مصور ومنشئ محتوى تسويقي</p>
+</header>
 
-header {
-  background-color: var(--secondary-color);
-  color: var(--accent-color);
-  padding: 20px;
-  text-align: center;
-  border-bottom: 3px solid var(--primary-color);
-}
+<div class="container">
+    <section>
+        <h2 class="section-title">مشاريعي</h2>
+        
+        <div class="project-card">
+            <h3>مشروع هاش فلو (Hash Flow)</h3>
+            <p>إدارة محتوى وتسويق رقمي للأداة الإنتاجية.</p>
+            <a href="#" class="btn">عرض التفاصيل</a>
+        </div>
 
-.button {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  transition: 0.3s;
-}
+        <div class="project-card">
+            <h3>تصوير المنتجات - كوفي شوب</h3>
+            <p>جلسات تصوير بنمط Minimalist Dark Mood.</p>
+            <a href="#" class="btn">مشاهدة الصور</a>
+        </div>
+    </section>
+</div>
 
-.button:hover {
-  background-color: var(--secondary-color);
-  cursor: pointer;
-}
-
-/* قسم المشاريع أو المعرض */
-.portfolio-item {
-  border: 1px solid var(--accent-color);
-  background-color: #fafafa;
-}
+</body>
+</html>
