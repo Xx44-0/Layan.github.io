@@ -1,33 +1,179 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>معرض أعمالي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بورتفوليو احترافي</title>
+    <style>
+        /* لوحة الألوان المستخرجة من الصورة */
+        :root {
+            --teal-blue: #2A5C75;      /* اللون الأساسي */
+            --sky-blue: #5E94AB;       /* للتفاعلات */
+            --cinnamon: #AA8C7E;       /* للحدود والأزرار */
+            --dusty-taupe: #C4B4A7;    /* لخلفيات البطاقات */
+            --pale-silver: #DDDFDE;    /* للنصوص المساعدة */
+            --bg-body: #F2E8E1;        /* خلفية الموقع العامة */
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--teal-blue);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* الاسم والمقدمة */
+        header {
+            background-color: var(--teal-blue);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 6px solid var(--cinnamon);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: var(--pale-silver);
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            border-right: 5px solid var(--cinnamon);
+            padding-right: 15px;
+            color: var(--teal-blue);
+            margin-bottom: 30px;
+        }
+
+        /* قسم المهارات */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .skill-item {
+            background-color: var(--cinnamon);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* قسم المشاريع */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--dusty-taupe);
+            border: 1px solid var(--teal-blue);
+            border-radius: 12px;
+            padding: 25px;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background-color: var(--sky-blue);
+            color: white;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background-color: var(--teal-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .project-card:hover .btn {
+            background-color: var(--cinnamon);
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>بورتفوليو احترافي</h1>
-    <p>مصور ومنشئ محتوى تسويقي</p>
+    <h1>[اسمك هنا]</h1>
+    <p>صانع محتوى تسويقي | مصور فوتوغرافي | أخصائي تجارة إلكترونية</p>
 </header>
 
 <div class="container">
-    <section>
-        <h2 class="section-title">مشاريعي</h2>
-        
-        <div class="project-card">
-            <h3>مشروع هاش فلو (Hash Flow)</h3>
-            <p>إدارة محتوى وتسويق رقمي للأداة الإنتاجية.</p>
-            <a href="#" class="btn">عرض التفاصيل</a>
-        </div>
-
-        <div class="project-card">
-            <h3>تصوير المنتجات - كوفي شوب</h3>
-            <p>جلسات تصوير بنمط Minimalist Dark Mood.</p>
-            <a href="#" class="btn">مشاهدة الصور</a>
+    
+    <section id="skills">
+        <h2>المهارات</h2>
+        <div class="skills-list">
+            <div class="skill-item">تصوير المنتجات (Lifestyle)</div>
+            <div class="skill-item">صناعة المحتوى لـ Hash Flow</div>
+            <div class="skill-item">الدعم اللوجستي للتجارة الإلكترونية</div>
+            <div class="skill-item">التسويق عبر TikTok</div>
+            <div class="skill-item">تحرير الفيديو الإبداعي</div>
         </div>
     </section>
+
+    <section id="projects">
+        <h2>المشاريع</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div>
+                    <h3>هاش فلو (Hash Flow)</h3>
+                    <p>إدارة الحساب الرسمي وصناعة فيديوهات تسويقية تعتمد على الإنتاجية.</p>
+                </div>
+                <a href="#" class="btn">معاينة المحتوى</a>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>تصوير المنتجات - كافيه</h3>
+                    <p>جلسات تصوير احترافية بنمط Dark Mood وتطوير أفكار تيك توك.</p>
+                </div>
+                <a href="#" class="btn">مشاهدة المعرض</a>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>مشروع التجارة الإلكترونية</h3>
+                    <p>تحليل العمليات اللوجستية وتطوير المتاجر ضمن دبلوم التخصص.</p>
+                </div>
+                <a href="#" class="btn">التفاصيل</a>
+            </div>
+
+        </div>
+    </section>
+
 </div>
 
 </body>
