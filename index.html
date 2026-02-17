@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتفوليو احترافي - الألوان الجديدة</title>
+    <title>البورتفوليو الاحترافي</title>
     <style>
-        /* لوحة الألوان المستخرجة من الصورة الجديدة */
+        /* لوحة الألوان المستخرجة من الصورة الثالثة */
         :root {
-            --warm-stone: #9F9A92;     /* لون العناوين الجانبية */
-            --soft-copper: #D59773;    /* لون التفاعل والأزرار */
-            --seafoam-gray: #B6C5C5;   /* لون خلفية البطاقات */
-            --soft-blush: #F2E7E1;     /* لون الخلفية الأساسية */
-            --chestnut-brown: #A17A67; /* لون الهيدر والنصوص البارزة */
-            --text-dark: #333333;
+            --alabaster: #E8DFD8;     /* لون الخلفية الأساسي */
+            --ocean-teal: #02343D;    /* اللون الأساسي للعناوين والهيدر */
+            --dusty-rose: #CBA4A0;    /* لون ثانوي للتفاصيل */
+            --mulberry: #8B4A5D;      /* لون الأزرار والتفاعلات البارزة */
+            --slate-blue: #7B8C99;    /* لون النصوص المساعدة والحدود */
         }
 
         body {
-            background-color: var(--soft-blush);
-            color: var(--text-dark);
+            background-color: var(--alabaster);
+            color: var(--ocean-teal);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
@@ -26,20 +25,21 @@
 
         /* الاسم والمقدمة */
         header {
-            background-color: var(--chestnut-brown);
-            color: white;
+            background-color: var(--ocean-teal);
+            color: var(--alabaster);
             padding: 60px 20px;
             text-align: center;
-            border-bottom: 8px solid var(--soft-copper);
+            border-bottom: 8px solid var(--mulberry);
         }
 
         header h1 {
             margin: 0;
             font-size: 2.8rem;
+            letter-spacing: 1px;
         }
 
         header p {
-            color: var(--soft-blush);
+            color: var(--dusty-rose);
             font-size: 1.2rem;
             margin-top: 10px;
         }
@@ -51,11 +51,10 @@
         }
 
         h2 {
-            border-right: 6px solid var(--soft-copper);
+            border-right: 6px solid var(--mulberry);
             padding-right: 15px;
-            color: var(--chestnut-brown);
+            color: var(--ocean-teal);
             margin-bottom: 30px;
-            font-size: 1.8rem;
         }
 
         /* قسم المهارات */
@@ -67,12 +66,17 @@
         }
 
         .skill-item {
-            background-color: var(--warm-stone);
+            background-color: var(--slate-blue);
             color: white;
             padding: 10px 22px;
             border-radius: 4px;
             font-weight: bold;
             font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .skill-item:hover {
+            background-color: var(--mulberry);
         }
 
         /* قسم المشاريع */
@@ -83,9 +87,9 @@
         }
 
         .project-card {
-            background-color: var(--seafoam-gray);
-            border: 1px solid var(--warm-stone);
-            border-radius: 8px;
+            background-color: white;
+            border: 1px solid var(--slate-blue);
+            border-radius: 12px;
             padding: 25px;
             transition: all 0.3s ease;
             display: flex;
@@ -95,38 +99,37 @@
 
         .project-card:hover {
             transform: translateY(-10px);
-            background-color: white;
-            border-color: var(--soft-copper);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--mulberry);
+            box-shadow: 0 15px 30px rgba(139, 74, 93, 0.15);
         }
 
         .project-card h3 {
-            color: var(--chestnut-brown);
+            color: var(--ocean-teal);
             margin-top: 0;
         }
 
         .btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: var(--soft-copper);
+            padding: 12px 24px;
+            background-color: var(--mulberry);
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: bold;
             text-align: center;
             transition: 0.3s;
         }
 
         .btn:hover {
-            background-color: var(--chestnut-brown);
+            background-color: var(--ocean-teal);
+            transform: scale(1.05);
         }
 
-        /* تذييل الصفحة */
         footer {
             text-align: center;
             padding: 40px;
-            color: var(--warm-stone);
+            color: var(--slate-blue);
             font-size: 0.9rem;
         }
     </style>
@@ -141,40 +144,40 @@
 <div class="container">
     
     <section id="skills">
-        <h2>المهارات الاحترافية</h2>
+        <h2>المهارات</h2>
         <div class="skills-list">
             <div class="skill-item">تصوير المنتجات (Lifestyle)</div>
-            <div class="skill-item">إدارة محتوى هاش فلو (Hash Flow)</div>
+            <div class="skill-item">إدارة محتوى "هاش فلو"</div>
             <div class="skill-item">التجارة الإلكترونية والدعم اللوجستي</div>
-            <div class="skill-item">صناعة فيديوهات تيك توك</div>
+            <div class="skill-item">صناعة محتوى TikTok الإبداعي</div>
             <div class="skill-item">تحرير الفيديو الاحترافي</div>
         </div>
     </section>
 
     <section id="projects">
-        <h2>أبرز المشاريع</h2>
+        <h2>المشاريع</h2>
         <div class="projects-grid">
             
             <div class="project-card">
                 <div>
                     <h3>هاش فلو (Hash Flow)</h3>
-                    <p>إدارة الحساب الرسمي وتطوير استراتيجية المحتوى المرئي لزيادة التفاعل والإنتاجية.</p>
+                    <p>صناعة محتوى تسويقي وإدارة الحساب الرسمي لتعزيز الإنتاجية الرقمية.</p>
                 </div>
                 <a href="#" class="btn">عرض العمل</a>
             </div>
 
             <div class="project-card">
                 <div>
-                    <h3>تصوير المنتجات</h3>
-                    <p>إخراج فني وجلسات تصوير متخصصة للكوفيهات والسيارات بنمط عصري.</p>
+                    <h3>تصوير فوتوغرافي</h3>
+                    <p>جلسات تصوير متخصصة للكوفيهات والسيارات بأنماط عصرية وفنية.</p>
                 </div>
-                <a href="#" class="btn">المعرض الفني</a>
+                <a href="#" class="btn">معرض الصور</a>
             </div>
 
             <div class="project-card">
                 <div>
-                    <h3>دبلوم التجارة الإلكترونية</h3>
-                    <p>مشاريع متخصصة في تحليل سلاسل الإمداد والدعم اللوجستي للمتاجر الرقمية.</p>
+                    <h3>الدعم اللوجستي</h3>
+                    <p>مشاريع تحليل سلاسل الإمداد ضمن تخصص التجارة الإلكترونية.</p>
                 </div>
                 <a href="#" class="btn">التفاصيل</a>
             </div>
@@ -185,7 +188,7 @@
 </div>
 
 <footer>
-    <p>حقوق النشر © 2026 - جميع الأعمال محفوظة</p>
+    <p>© 2026 جميع الحقوق محفوظة</p>
 </footer>
 
 </body>
