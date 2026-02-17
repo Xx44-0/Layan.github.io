@@ -3,45 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البورتفوليو الاحترافي</title>
+    <title>بورتفوليو احترافي | الإبداع والمحتوى</title>
     <style>
-        /* لوحة الألوان المستوحاة من Pantone */
+        /* لوحة الألوان المعتمدة */
         :root {
-            --deep-navy: #1B365D;     /* Pantone 534 C - الهيدر والاحترافية */
-            --sky-blue: #A7BCD1;      /* Pantone 536 C - التفاعلات والنعومة */
-            --stone-beige: #D9D9C2;   /* Pantone 7534 C - الخلفية الراقية */
-            --earth-brown: #5E564D;   /* Pantone 7519 C - العناوين الجانبية */
-            --pure-white: #FFFFFF;
+            --cherry: #5E0C05;     /* اللون الأساسي - قوة وفخامة */
+            --lilac: #B9C8E5;      /* لون التباين الهادئ */
+            --mauve: #D3B1C2;      /* لون الخلفية الفرعية */
+            --thistle: #7C4D62;    /* لون العناوين والاحترافية */
+            --bg-light: #F9F5F7;   /* خلفية فاتحة مريحة */
         }
 
         body {
-            background-color: var(--stone-beige);
-            color: var(--earth-brown);
+            background-color: var(--bg-light);
+            color: var(--cherry);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
-        /* رأس الصفحة */
         header {
-            background-color: var(--deep-navy);
-            color: var(--stone-beige);
-            padding: 80px 20px;
+            background-color: var(--cherry);
+            color: var(--mauve);
+            padding: 70px 20px;
             text-align: center;
-            border-bottom: 8px solid var(--sky-blue);
+            border-bottom: 8px solid var(--thistle);
         }
 
         header h1 {
             margin: 0;
-            font-size: 3rem;
+            font-size: 2.8rem;
             letter-spacing: 1px;
         }
 
         header p {
-            color: var(--sky-blue);
+            color: var(--lilac);
             font-size: 1.2rem;
-            margin-top: 12px;
+            margin-top: 10px;
             font-weight: bold;
         }
 
@@ -52,149 +51,124 @@
         }
 
         h2 {
-            border-right: 6px solid var(--deep-navy);
+            border-right: 6px solid var(--cherry);
             padding-right: 15px;
-            color: var(--deep-navy);
+            color: var(--thistle);
             margin-bottom: 35px;
-            font-size: 2rem;
         }
 
-        /* قسم المهارات */
+        /* المهارات */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 60px;
         }
 
         .skill-item {
-            background-color: var(--deep-navy);
-            color: white;
-            padding: 12px 28px;
+            background-color: var(--lilac);
+            color: var(--cherry);
+            padding: 10px 22px;
             border-radius: 4px;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .skill-item:hover {
-            background-color: var(--sky-blue);
-            color: var(--deep-navy);
+            background-color: var(--thistle);
+            color: white;
             transform: translateY(-3px);
         }
 
-        /* قسم المشاريع */
+        /* المشاريع */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
 
         .project-card {
-            background-color: var(--pure-white);
-            border: 1px solid var(--sky-blue);
+            background-color: white;
+            border: 2px solid var(--mauve);
             border-radius: 12px;
             padding: 30px;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 10px rgba(27, 54, 93, 0.05);
+            transition: 0.4s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--deep-navy);
-            box-shadow: 0 20px 40px rgba(27, 54, 93, 0.1);
+            transform: translateY(-10px);
+            border-color: var(--cherry);
+            box-shadow: 0 15px 30px rgba(94, 12, 5, 0.1);
         }
 
         .project-card h3 {
-            color: var(--deep-navy);
+            color: var(--thistle);
             margin-top: 0;
-            font-size: 1.5rem;
         }
 
         /* الأزرار */
         .btn {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 30px;
-            background-color: var(--deep-navy);
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: var(--cherry);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             text-align: center;
-            transition: 0.3s;
         }
 
         .btn:hover {
-            background-color: var(--sky-blue);
-            color: var(--deep-navy);
+            background-color: var(--thistle);
         }
 
-        /* تذييل الصفحة */
         footer {
             text-align: center;
-            padding: 60px;
-            color: var(--earth-brown);
-            font-size: 0.95rem;
-            border-top: 1px solid var(--sky-blue);
-            margin-top: 50px;
+            padding: 40px;
+            color: var(--thistle);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--mauve);
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>[اسمك هنا]</h1>
-    <p>مصورة منتجات احترافية | منشئة محتوى "هاش فلو" | أخصائية تجارة إلكترونية</p>
+    <h1>بورتفوليو إبداعي</h1>
+    <p>تصوير منتجات | صناعة محتوى هاش فلو | أخصائية تجارة إلكترونية</p>
 </header>
 
 <div class="container">
-    
-    <section id="skills">
-        <h2>الخبرات والمهارات</h2>
+    <section>
+        <h2>المهارات الاحترافية</h2>
         <div class="skills-list">
-            <div class="skill-item">تصوير المنتجات (Lifestyle)</div>
+            <div class="skill-item">تصوير Lifestyle للمنتجات</div>
             <div class="skill-item">إدارة محتوى "هاش فلو"</div>
-            <div class="skill-item">الدعم اللوجستي للتجارة الإلكترونية</div>
-            <div class="skill-item">صناعة محتوى TikTok</div>
-            <div class="skill-item">تصوير السيارات بنمط Minimalist</div>
+            <div class="skill-item">الدعم اللوجستي</div>
+            <div class="skill-item">تسويق عبر تيك توك</div>
         </div>
     </section>
 
-    <section id="projects">
-        <h2>أبرز الأعمال</h2>
+    <section>
+        <h2>أبرز المشاريع</h2>
         <div class="projects-grid">
-            
             <div class="project-card">
-                <div>
-                    <h3>هاش فلو (Hash Flow)</h3>
-                    <p>صناعة المحتوى المرئي وإدارة حسابات التواصل لتعزيز إنتاجية الأداة.</p>
-                </div>
-                <a href="#" class="btn">معاينة العمل</a>
+                <h3>هاش فلو (Hash Flow)</h3>
+                <p>تطوير وإدارة المحتوى المرئي للأداة لزيادة التفاعل والإنتاجية.</p>
+                <a href="#" class="btn">تفاصيل المشروع</a>
             </div>
-
             <div class="project-card">
-                <div>
-                    <h3>تصوير فوتوغرافي - منتجات</h3>
-                    <p>إخراج فني وجلسات تصوير للكوفيهات تركز على تفاصيل المنتج والجمالية.</p>
-                </div>
-                <a href="#" class="btn">المعرض الفني</a>
+                <h3>تصوير كوفي شوب</h3>
+                <p>جلسات تصوير احترافية بنمط عصري يبرز جمالية المنتجات.</p>
+                <a href="#" class="btn">معرض الصور</a>
             </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>التجارة الإلكترونية</h3>
-                    <p>مشاريع تحليل سلاسل الإمداد والدعم اللوجستي ضمن التخصص الجامعي.</p>
-                </div>
-                <a href="#" class="btn">التفاصيل</a>
-            </div>
-
         </div>
     </section>
-
 </div>
 
 <footer>
-    <p>© 2026 جميع الأعمال محفوظة لـ [اسمك]</p>
+    <p>© 2026 جميع الأعمال محفوظة</p>
 </footer>
 
 </body>
