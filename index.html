@@ -3,46 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البورتفوليو الإحترافي</title>
+    <title>البورتفوليو الاحترافي</title>
     <style>
-        /* لوحة الألوان الجديدة من الصورة الأخيرة */
         :root {
-            --crimson-red: #6B101C;   /* اللون الجريء للأزرار والتفاعلات */
-            --frosted-blue: #94A2B1;  /* لون هادئ للخلفيات الثانوية */
-            --sage-gray: #647B6E;     /* لون العناوين والاحترافية */
-            --moss-green: #374233;    /* لون الهيدر والنصوص العميقة */
-            --pale-mist: #D7DDE1;     /* لون الخلفية الأساسي النظيف */
+            /* لوحة الألوان المقترحة (الفخامة العصرية) */
+            --primary-dark: #1A1B25;   /* Blackberry - لون الهيدر والعمق */
+            --accent-color: #6B4E71;   /* الموف العميق - للأزرار والتفاعلات */
+            --secondary-pale: #D1D5DB; /* Moonstone - لون النصوص المساعدة */
+            --bg-light: #F3F4F6;      /* لون الخلفية الأساسي */
+            --text-main: #111827;      /* لون النصوص الرئيسية */
         }
 
         body {
-            background-color: var(--pale-mist);
-            color: var(--moss-green);
+            background-color: var(--bg-light);
+            color: var(--text-main);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
-        /* الهيدر (رأس الصفحة) */
         header {
-            background-color: var(--moss-green);
-            color: var(--pale-mist);
-            padding: 70px 20px;
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 80px 20px;
             text-align: center;
-            border-bottom: 8px solid var(--crimson-red);
+            border-bottom: 6px solid var(--accent-color);
         }
 
         header h1 {
             margin: 0;
             font-size: 3rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         header p {
-            color: var(--frosted-blue);
-            font-size: 1.3rem;
+            color: var(--secondary-pale);
+            font-size: 1.2rem;
             margin-top: 10px;
-            font-weight: bold;
         }
 
         .container {
@@ -52,93 +50,74 @@
         }
 
         h2 {
-            border-right: 6px solid var(--sage-gray);
+            border-right: 5px solid var(--accent-color);
             padding-right: 15px;
-            color: var(--moss-green);
-            margin-bottom: 35px;
-            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
         }
 
-        /* قسم المهارات */
+        /* المهارات */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 60px;
         }
 
         .skill-item {
-            background-color: var(--sage-gray);
+            background-color: var(--primary-dark);
             color: white;
-            padding: 12px 25px;
+            padding: 10px 22px;
             border-radius: 4px;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .skill-item:hover {
-            background-color: var(--crimson-red);
+            background-color: var(--accent-color);
             transform: scale(1.05);
         }
 
-        /* قسم المشاريع */
+        /* المشاريع */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .project-card {
             background-color: white;
-            border: 1px solid var(--frosted-blue);
+            border: 1px solid var(--secondary-pale);
             border-radius: 12px;
             padding: 30px;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: 0.4s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .project-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--crimson-red);
-            box-shadow: 0 20px 40px rgba(107, 16, 28, 0.1);
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(107, 78, 113, 0.1);
         }
 
-        .project-card h3 {
-            color: var(--sage-gray);
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
-
-        /* الأزرار */
         .btn {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 28px;
-            background-color: var(--crimson-red);
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: var(--accent-color);
             color: white;
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
             text-align: center;
-            transition: 0.3s;
         }
 
-        .btn:hover {
-            background-color: var(--moss-green);
-            transform: translateY(-2px);
-        }
-
-        /* تذييل الصفحة */
         footer {
             text-align: center;
             padding: 50px;
-            color: var(--sage-gray);
+            color: var(--primary-dark);
             font-size: 0.9rem;
-            border-top: 1px solid var(--frosted-blue);
-            margin-top: 40px;
+            border-top: 1px solid var(--secondary-pale);
         }
     </style>
 </head>
@@ -146,57 +125,39 @@
 
 <header>
     <h1>[اسمك هنا]</h1>
-    <p>مصور فوتوغرافي | منشئ محتوى تسويقي | أخصائي تجارة إلكترونية</p>
+    <p>مصورة منتجات | منشئة محتوى هاش فلو | تجارة إلكترونية</p>
 </header>
 
 <div class="container">
-    
-    <section id="skills">
-        <h2>المهارات</h2>
+    <section>
+        <h2>المهارات الاحترافية</h2>
         <div class="skills-list">
-            <div class="skill-item">تصوير المنتجات (Lifestyle)</div>
-            <div class="skill-item">إدارة محتوى "هاش فلو"</div>
-            <div class="skill-item">التجارة الإلكترونية والدعم اللوجستي</div>
-            <div class="skill-item">صناعة محتوى TikTok الإبداعي</div>
-            <div class="skill-item">تحرير الفيديو الاحترافي</div>
+            <div class="skill-item">تصوير Lifestyle</div>
+            <div class="skill-item">إدارة محتوى هاش فلو</div>
+            <div class="skill-item">الدعم اللوجستي</div>
+            <div class="skill-item">صناعة فيديوهات تيك توك</div>
         </div>
     </section>
 
-    <section id="projects">
+    <section>
         <h2>أبرز المشاريع</h2>
         <div class="projects-grid">
-            
             <div class="project-card">
-                <div>
-                    <h3>هاش فلو (Hash Flow)</h3>
-                    <p>صناعة استراتيجية محتوى مرئي وإدارة الحساب الرسمي لتعزيز الإنتاجية الرقمية.</p>
-                </div>
-                <a href="#" class="btn">عرض العمل</a>
+                <h3>هاش فلو (Hash Flow)</h3>
+                <p>تطوير وإدارة المحتوى التسويقي للأداة الإنتاجية.</p>
+                <a href="#" class="btn">مشاهدة العمل</a>
             </div>
-
             <div class="project-card">
-                <div>
-                    <h3>تصوير المنتجات</h3>
-                    <p>إخراج فني لجلسات تصوير متخصصة للكوفيهات والسيارات بأنماط معاصرة.</p>
-                </div>
-                <a href="#" class="btn">معرض الصور</a>
+                <h3>تصوير منتجات</h3>
+                <p>جلسات تصوير احترافية للكوفيهات والسيارات.</p>
+                <a href="#" class="btn">المعرض الفني</a>
             </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>الدعم اللوجستي</h3>
-                    <p>مشاريع تحليلية وإدارية ضمن تخصص التجارة الإلكترونية وسلاسل الإمداد.</p>
-                </div>
-                <a href="#" class="btn">التفاصيل</a>
-            </div>
-
         </div>
     </section>
-
 </div>
 
 <footer>
-    <p>© 2026 جميع الأعمال محفوظة لـ [اسمك]</p>
+    <p>© 2026 جميع الحقوق محفوظة</p>
 </footer>
 
 </body>
