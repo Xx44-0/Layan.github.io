@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتفوليو احترافي | الإبداع والمحتوى</title>
+    <title>بورتفوليو احترافي</title>
     <style>
-        /* لوحة الألوان المعتمدة */
+        /* لوحة الألوان المعتمدة من الصورة */
         :root {
-            --cherry: #5E0C05;     /* اللون الأساسي - قوة وفخامة */
-            --lilac: #B9C8E5;      /* لون التباين الهادئ */
-            --mauve: #D3B1C2;      /* لون الخلفية الفرعية */
-            --thistle: #7C4D62;    /* لون العناوين والاحترافية */
-            --bg-light: #F9F5F7;   /* خلفية فاتحة مريحة */
+            --light-cream: #DBD3C8;    /* لون الخلفية الأساسي */
+            --sage-mist: #CDC6BA;     /* للتفاصيل والحدود الناعمة */
+            --warm-cocoa: #AD9C8A;    /* لون المهارات والعناصر الثانوية */
+            --slate-blue: #7C929E;    /* لون التفاعل (Hover) والأزرار */
+            --deep-coffee: #5D4D34;   /* لون الهيدر والنصوص الرئيسية */
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--cherry);
+            background-color: var(--light-cream);
+            color: var(--deep-coffee);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
@@ -24,11 +24,11 @@
         }
 
         header {
-            background-color: var(--cherry);
-            color: var(--mauve);
+            background-color: var(--deep-coffee);
+            color: var(--light-cream);
             padding: 70px 20px;
             text-align: center;
-            border-bottom: 8px solid var(--thistle);
+            border-bottom: 8px solid var(--warm-cocoa);
         }
 
         header h1 {
@@ -38,7 +38,7 @@
         }
 
         header p {
-            color: var(--lilac);
+            color: var(--sage-mist);
             font-size: 1.2rem;
             margin-top: 10px;
             font-weight: bold;
@@ -51,13 +51,13 @@
         }
 
         h2 {
-            border-right: 6px solid var(--cherry);
+            border-right: 6px solid var(--warm-cocoa);
             padding-right: 15px;
-            color: var(--thistle);
+            color: var(--deep-coffee);
             margin-bottom: 35px;
         }
 
-        /* المهارات */
+        /* قسم المهارات */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
@@ -66,8 +66,8 @@
         }
 
         .skill-item {
-            background-color: var(--lilac);
-            color: var(--cherry);
+            background-color: var(--warm-cocoa);
+            color: white;
             padding: 10px 22px;
             border-radius: 4px;
             font-weight: bold;
@@ -75,12 +75,11 @@
         }
 
         .skill-item:hover {
-            background-color: var(--thistle);
-            color: white;
+            background-color: var(--slate-blue);
             transform: translateY(-3px);
         }
 
-        /* المشاريع */
+        /* قسم المشاريع */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -89,20 +88,21 @@
 
         .project-card {
             background-color: white;
-            border: 2px solid var(--mauve);
+            border: 1px solid var(--sage-mist);
             border-radius: 12px;
             padding: 30px;
             transition: 0.4s ease;
+            box-shadow: 0 4px 6px rgba(93, 77, 52, 0.05);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            border-color: var(--cherry);
-            box-shadow: 0 15px 30px rgba(94, 12, 5, 0.1);
+            border-color: var(--slate-blue);
+            box-shadow: 0 15px 30px rgba(124, 146, 158, 0.15);
         }
 
         .project-card h3 {
-            color: var(--thistle);
+            color: var(--deep-coffee);
             margin-top: 0;
         }
 
@@ -110,25 +110,26 @@
         .btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 25px;
-            background-color: var(--cherry);
+            padding: 12px 25px;
+            background-color: var(--deep-coffee);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             text-align: center;
+            transition: 0.3s;
         }
 
         .btn:hover {
-            background-color: var(--thistle);
+            background-color: var(--slate-blue);
         }
 
         footer {
             text-align: center;
             padding: 40px;
-            color: var(--thistle);
+            color: var(--deep-coffee);
             font-size: 0.9rem;
-            border-top: 1px solid var(--mauve);
+            border-top: 1px solid var(--warm-cocoa);
         }
     </style>
 </head>
@@ -136,7 +137,7 @@
 
 <header>
     <h1>بورتفوليو إبداعي</h1>
-    <p>تصوير منتجات | صناعة محتوى هاش فلو | أخصائية تجارة إلكترونية</p>
+    <p>تصوير منتجات احترافي | إدارة محتوى هاش فلو | أخصائية تجارة إلكترونية</p>
 </header>
 
 <div class="container">
@@ -146,7 +147,8 @@
             <div class="skill-item">تصوير Lifestyle للمنتجات</div>
             <div class="skill-item">إدارة محتوى "هاش فلو"</div>
             <div class="skill-item">الدعم اللوجستي</div>
-            <div class="skill-item">تسويق عبر تيك توك</div>
+            <div class="skill-item">صناعة فيديوهات تيك توك</div>
+            <div class="skill-item">تحرير الفيديو الإبداعي</div>
         </div>
     </section>
 
@@ -155,13 +157,18 @@
         <div class="projects-grid">
             <div class="project-card">
                 <h3>هاش فلو (Hash Flow)</h3>
-                <p>تطوير وإدارة المحتوى المرئي للأداة لزيادة التفاعل والإنتاجية.</p>
-                <a href="#" class="btn">تفاصيل المشروع</a>
+                <p>صناعة وإدارة المحتوى التسويقي للأداة لتعزيز الإنتاجية الرقمية.</p>
+                <a href="#" class="btn">معاينة العمل</a>
             </div>
             <div class="project-card">
                 <h3>تصوير كوفي شوب</h3>
                 <p>جلسات تصوير احترافية بنمط عصري يبرز جمالية المنتجات.</p>
                 <a href="#" class="btn">معرض الصور</a>
+            </div>
+            <div class="project-card">
+                <h3>دبلوم التجارة الإلكترونية</h3>
+                <p>مشاريع تحليل سلاسل الإمداد والدعم اللوجستي للمتاجر.</p>
+                <a href="#" class="btn">التفاصيل</a>
             </div>
         </div>
     </section>
