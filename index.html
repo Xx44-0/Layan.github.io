@@ -1,141 +1,47 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layan | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Noto+Sans+Arabic:wght@200;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root { 
-            --alabaster: #E8DFD8; /* الخلفية الأساسية */
-            --ocean-teal: #02343D; /* العناوين والنصوص الأساسية */
-            --dusty-rose: #CBA4A0; /* الخطوط الفرعية والحدود */
-            --mulberry: #8B4A5D;   /* الأيقونات وزر اللغة */
-            --slate-blue: #7B8C99; /* الفواصل الناعمة */
-        }
+/* تعريف متغيرات الألوان لسهولة التعديل */
+:root {
+    --primary-red: #6B101C;     /* Crimson Red */
+    --accent-blue: #9AAAB1;     /* Frosted Blue */
+    --sage-gray: #64786E;       /* Sage Gray */
+    --moss-green: #374233;      /* Moss Green */
+    --frost-mint: #D7DDE1;      /* Frost Mint */
+}
 
-        body { 
-            font-family: 'Inter', 'Noto Sans Arabic', sans-serif; 
-            margin: 0; background-color: var(--alabaster); color: var(--ocean-teal); 
-            line-height: 1.6; transition: all 0.5s ease;
-        }
+body {
+    background-color: var(--frost-mint);
+    color: var(--moss-green);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s all ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+h1, h2 {
+    color: var(--primary-red);
+}
 
-        .container { max-width: 650px; margin: 0 auto; padding: 100px 24px; }
+.card {
+    background-color: white; /* لجعل المحتوى يبرز فوق الخلفية المينت */
+    border-left: 5px solid var(--sage-gray);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
 
-        /* زر اللغة بستايل Mulberry */
-        .lang-btn { 
-            position: fixed; top: 30px; right: 30px; background: var(--mulberry); color: #fff; 
-            border: none; padding: 7px 15px; cursor: pointer; font-size: 11px; font-weight: 600; 
-            border-radius: 2px; z-index: 1000; transition: 0.3s;
-        }
-        .lang-btn:hover { opacity: 0.8; transform: scale(1.05); }
+.button {
+    background-color: var(--primary-red);
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-        header { margin-bottom: 80px; }
-        header h1 { font-size: 40px; font-weight: 600; margin: 0; letter-spacing: -1px; color: var(--ocean-teal); }
-        header p { color: var(--dusty-rose); font-size: 14px; margin-top: 5px; font-weight: 600; letter-spacing: 1px; }
+.button:hover {
+    background-color: var(--moss-green);
+}
 
-        section { margin-bottom: 60px; }
-        h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--slate-blue); margin-bottom: 25px; border-bottom: 1px solid var(--dusty-rose); padding-bottom: 8px; }
-
-        .about-text { font-size: 16px; color: var(--ocean-teal); font-weight: 400; }
-
-        /* مهارات بلمسة Rose */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-item { background: rgba(203, 164, 160, 0.15); padding: 5px 12px; font-size: 13px; color: var(--ocean-teal); border: 1px solid var(--dusty-rose); border-radius: 3px; }
-
-        /* صور "سمباتيك" ومرتبة */
-        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .project-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 2px; border: 1px solid var(--dusty-rose); margin-top: 10px; filter: grayscale(30%); transition: 0.4s; }
-        .project-card img:hover { filter: grayscale(0%); transform: translateY(-5px); }
-        .project-card p { font-size: 13px; font-weight: 600; color: var(--ocean-teal); margin-top: 8px; }
-
-        .cv-img { width: 130px; height: auto; border: 1px solid var(--dusty-rose); margin-top: 20px; }
-
-        footer { margin-top: 80px; text-align: center; border-top: 1px solid var(--slate-blue); padding-top: 40px; }
-        .email-link { color: var(--mulberry); font-size: 26px; text-decoration: none; transition: 0.3s; }
-        .email-link:hover { transform: scale(1.2); opacity: 0.7; }
-
-        .rtl { direction: rtl; text-align: right; }
-        .rtl .lang-btn { right: auto; left: 30px; }
-        [data-lang="ar"] { display: none; }
-    </style>
-</head>
-<body>
-
-<button class="lang-btn" onclick="toggleLang()" id="btn-lang">Ar</button>
-
-<div class="container">
-    <header class="reveal">
-        <h1>Layan</h1>
-        <p class="lang-en">E-commerce & Logistics Specialist</p>
-        <p class="lang-ar" data-lang="ar">متخصصة تجارة إلكترونية ودعم لوجستي</p>
-    </header>
-
-    <section class="reveal">
-        <h2 class="lang-en">Biography</h2>
-        <h2 class="lang-ar" data-lang="ar">التعريف</h2>
-        <p class="about-text lang-en">E-commerce and Logistics graduate, passionate about digital marketing and store management. Focused on enhancing customer experience and improving operational efficiency.</p>
-        <p class="about-text lang-ar" data-lang="ar">خريجة تخصص تجارة إلكترونية ودعم لوجستي، مهتمة بالتسويق الرقمي وإدارة المتاجر الإلكترونية، مع التركيز التام على تحسين تجربة العملاء ورفع كفاءة العمليات.</p>
-        <img src="cv-image.jpg" class="cv-img" alt="CV Preview">
-    </section>
-
-    <section class="reveal">
-        <h2 class="lang-en">Core Skills</h2>
-        <h2 class="lang-ar" data-lang="ar">المهارات الأساسية</h2>
-        <div class="skills-grid">
-            <div class="skill-item">Store Management</div>
-            <div class="skill-item">Logistics Support</div>
-            <div class="skill-item">Digital Strategy</div>
-            <div class="skill-item">Data Analysis</div>
-            <div class="skill-item">Content Creation</div>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <h2 class="lang-en">Featured Work</h2>
-        <h2 class="lang-ar" data-lang="ar">أعمال مختارة</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <p>Graduation Project</p>
-                <img src="project1.jpg" alt="Work 1">
-            </div>
-            <div class="project-card">
-                <p>Tone Coffee</p>
-                <img src="project2.jpg" alt="Work 2">
-            </div>
-        </div>
-    </section>
-
-    <footer class="reveal">
-        <a href="mailto:Li7en7@gmail.com" class="email-link">
-            <i class="far fa-envelope"></i>
-        </a>
-        <p style="font-size: 11px; color: var(--slate-blue); margin-top: 15px; letter-spacing: 1px;">© 2026 LAYAN</p>
-    </footer>
-</div>
-
-<script>
-    function toggleLang() {
-        const body = document.body;
-        const btn = document.getElementById('btn-lang');
-        const isAr = body.classList.toggle('rtl');
-        document.querySelectorAll('.lang-en').forEach(el => el.style.display = isAr ? 'none' : 'block');
-        document.querySelectorAll('.lang-ar').forEach(el => el.style.display = isAr ? 'block' : 'none');
-        btn.innerText = isAr ? 'En' : 'Ar';
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('active');
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+.secondary-text {
+    color: var(--accent-blue);
+}
