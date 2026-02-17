@@ -1,47 +1,139 @@
-/* تعريف متغيرات الألوان لسهولة التعديل */
-:root {
-    --primary-red: #6B101C;     /* Crimson Red */
-    --accent-blue: #9AAAB1;     /* Frosted Blue */
-    --sage-gray: #64786E;       /* Sage Gray */
-    --moss-green: #374233;      /* Moss Green */
-    --frost-mint: #D7DDE1;      /* Frost Mint */
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي | Portfolio</title>
+    <style>
+        /* تعريف الألوان المستخرجة من الصورة */
+        :root {
+            --crimson-red: #6B101C;  /* Crimson Red */
+            --frosted-blue: #9AAAB1; /* Frosted Blue */
+            --sage-gray: #64786E;    /* Sage Gray */
+            --moss-green: #374233;   /* Moss Green */
+            --frost-mint: #D7DDE1;   /* Frost Mint */
+            --white: #ffffff;
+        }
 
-body {
-    background-color: var(--frost-mint);
-    color: var(--moss-green);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--frost-mint); /* اللون الفاتح للخلفية */
+            color: var(--moss-green);
+        }
 
-h1, h2 {
-    color: var(--primary-red);
-}
+        /* الهيدر / رأس الصفحة */
+        header {
+            background-color: var(--crimson-red);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
 
-.card {
-    background-color: white; /* لجعل المحتوى يبرز فوق الخلفية المينت */
-    border-left: 5px solid var(--sage-gray);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin-top: 10px; opacity: 0.9; }
 
-.button {
-    background-color: var(--primary-red);
-    color: #ffffff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+        /* الأقسام الرئيسية */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
 
-.button:hover {
-    background-color: var(--moss-green);
-}
+        section {
+            background: var(--white);
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-right: 6px solid var(--sage-gray);
+        }
 
-.secondary-text {
-    color: var(--accent-blue);
-}
+        h2 {
+            color: var(--crimson-red);
+            border-bottom: 2px solid var(--frost-mint);
+            padding-bottom: 10px;
+        }
+
+        /* قسم المهارات */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill-item {
+            background: var(--frosted-blue);
+            color: var(--white);
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* قسم المشاريع */
+        .project-card {
+            background: var(--frost-mint);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .project-card h3 { margin-top: 0; color: var(--moss-green); }
+
+        /* الأزرار */
+        .btn {
+            display: inline-block;
+            background-color: var(--moss-green);
+            color: var(--white);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--crimson-red);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>خريجة تجارة إلكترونية ودعم لوجستي</h1> <p>متخصصة في صناعة المحتوى التسويقي والإبداع البصري</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>عني</h2>
+            <p>أعمل حالياً على تطوير مهاراتي في بناء المواقع وصناعة المحتوى، مع التركيز على الجوانب اللوجستية والتجارة الرقمية.</p>
+        </section>
+
+        <section id="skills">
+            <h2>المهارات</h2>
+            <div class="skills-grid">
+                <div class="skill-item">تجارة إلكترونية</div>
+                <div class="skill-item">دعم لوجستي</div>
+                <div class="skill-item">تسويق محتوى</div>
+                <div class="skill-item">تصميم بصري</div>
+                <div class="skill-item">إدارة TikTok</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>المشاريع الحالية</h2>
+            <div class="project-card">
+                <h3>هاش فلو (Hash Flow)</h3> <p>تطوير محتوى تسويقي وسيناريوهات فيديو لأداة الإنتاجية والتعلم "هاش فلو".</p>
+            </div>
+            <div class="project-card">
+                <h3>محتوى TikTok لكوفي</h3> <p>ابتكار أفكار تصوير إبداعية لتعزيز حضور المقاهي على منصات التواصل الاجتماعي.</p>
+            </div>
+            <a href="#" class="btn">تواصل معي</a>
+        </section>
+    </div>
+
+</body>
+</html>
