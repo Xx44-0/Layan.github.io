@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البورتفوليو الشخصي</title>
+    <title>البورتفوليو الاحترافي</title>
     <style>
-        /* الألوان المستخرجة من لوحتكِ الأخيرة */
+        /* لوحة الألوان المستوحاة من Pantone */
         :root {
-            --deep-burgundy: #401216;  /* اللون الداكن الأساسي للهيدر */
-            --muted-rose: #63333A;     /* للتفاعلات واللمسات الجانبية */
-            --warm-tan: #9C7961;       /* لون العناوين والحدود */
-            --cream-beige: #FFEDDA;    /* لون الخلفية الأساسي المريح */
-            --soft-nude: #D5BCAD;      /* لون بطاقات المشاريع */
-            --text-color: #2D161E;     /* لون النصوص الداكنة */
+            --deep-navy: #1B365D;     /* Pantone 534 C - الهيدر والاحترافية */
+            --sky-blue: #A7BCD1;      /* Pantone 536 C - التفاعلات والنعومة */
+            --stone-beige: #D9D9C2;   /* Pantone 7534 C - الخلفية الراقية */
+            --earth-brown: #5E564D;   /* Pantone 7519 C - العناوين الجانبية */
+            --pure-white: #FFFFFF;
         }
 
         body {
-            background-color: var(--cream-beige);
-            color: var(--text-color);
+            background-color: var(--stone-beige);
+            color: var(--earth-brown);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
-        /* رأس الصفحة (الهيدر) */
+        /* رأس الصفحة */
         header {
-            background-color: var(--deep-burgundy);
-            color: var(--cream-beige);
+            background-color: var(--deep-navy);
+            color: var(--stone-beige);
             padding: 80px 20px;
             text-align: center;
-            border-bottom: 6px solid var(--warm-tan);
+            border-bottom: 8px solid var(--sky-blue);
         }
 
         header h1 {
             margin: 0;
             font-size: 3rem;
             letter-spacing: 1px;
-            font-weight: bold;
         }
 
         header p {
-            color: var(--soft-nude);
-            font-size: 1.3rem;
+            color: var(--sky-blue);
+            font-size: 1.2rem;
             margin-top: 12px;
+            font-weight: bold;
         }
 
         .container {
@@ -53,9 +52,9 @@
         }
 
         h2 {
-            border-right: 6px solid var(--muted-rose);
+            border-right: 6px solid var(--deep-navy);
             padding-right: 15px;
-            color: var(--deep-burgundy);
+            color: var(--deep-navy);
             margin-bottom: 35px;
             font-size: 2rem;
         }
@@ -69,7 +68,7 @@
         }
 
         .skill-item {
-            background-color: var(--warm-tan);
+            background-color: var(--deep-navy);
             color: white;
             padding: 12px 28px;
             border-radius: 4px;
@@ -78,7 +77,8 @@
         }
 
         .skill-item:hover {
-            background-color: var(--deep-burgundy);
+            background-color: var(--sky-blue);
+            color: var(--deep-navy);
             transform: translateY(-3px);
         }
 
@@ -90,23 +90,22 @@
         }
 
         .project-card {
-            background-color: var(--soft-nude);
-            border: 1px solid var(--warm-tan);
-            border-radius: 15px;
+            background-color: var(--pure-white);
+            border: 1px solid var(--sky-blue);
+            border-radius: 12px;
             padding: 30px;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 10px rgba(64, 18, 22, 0.05);
+            box-shadow: 0 4px 10px rgba(27, 54, 93, 0.05);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            background-color: white;
-            border-color: var(--muted-rose);
-            box-shadow: 0 20px 40px rgba(64, 18, 22, 0.1);
+            transform: translateY(-12px);
+            border-color: var(--deep-navy);
+            box-shadow: 0 20px 40px rgba(27, 54, 93, 0.1);
         }
 
         .project-card h3 {
-            color: var(--deep-burgundy);
+            color: var(--deep-navy);
             margin-top: 0;
             font-size: 1.5rem;
         }
@@ -116,7 +115,7 @@
             display: inline-block;
             margin-top: 25px;
             padding: 12px 30px;
-            background-color: var(--deep-burgundy);
+            background-color: var(--deep-navy);
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -126,16 +125,17 @@
         }
 
         .btn:hover {
-            background-color: var(--warm-tan);
+            background-color: var(--sky-blue);
+            color: var(--deep-navy);
         }
 
         /* تذييل الصفحة */
         footer {
             text-align: center;
             padding: 60px;
-            color: var(--warm-tan);
+            color: var(--earth-brown);
             font-size: 0.95rem;
-            border-top: 1px solid var(--soft-nude);
+            border-top: 1px solid var(--sky-blue);
             margin-top: 50px;
         }
     </style>
@@ -150,40 +150,40 @@
 <div class="container">
     
     <section id="skills">
-        <h2>مهاراتي</h2>
+        <h2>الخبرات والمهارات</h2>
         <div class="skills-list">
             <div class="skill-item">تصوير المنتجات (Lifestyle)</div>
             <div class="skill-item">إدارة محتوى "هاش فلو"</div>
             <div class="skill-item">الدعم اللوجستي للتجارة الإلكترونية</div>
-            <div class="skill-item">صناعة محتوى TikTok إبداعي</div>
-            <div class="skill-item">إخراج الصور بنمط Minimalist Dark</div>
+            <div class="skill-item">صناعة محتوى TikTok</div>
+            <div class="skill-item">تصوير السيارات بنمط Minimalist</div>
         </div>
     </section>
 
     <section id="projects">
-        <h2>المشاريع المنجزة</h2>
+        <h2>أبرز الأعمال</h2>
         <div class="projects-grid">
             
             <div class="project-card">
                 <div>
                     <h3>هاش فلو (Hash Flow)</h3>
-                    <p>صناعة استراتيجية المحتوى المرئي وإدارة القنوات الرسمية لزيادة التفاعل.</p>
+                    <p>صناعة المحتوى المرئي وإدارة حسابات التواصل لتعزيز إنتاجية الأداة.</p>
                 </div>
-                <a href="#" class="btn">عرض المشروع</a>
+                <a href="#" class="btn">معاينة العمل</a>
             </div>
 
             <div class="project-card">
                 <div>
-                    <h3>تصوير منتجات - كوفيهات</h3>
-                    <p>جلسات تصوير احترافية تركز على الجمالية والنمط الدافئ الذي يناسب هوية الكافيه.</p>
+                    <h3>تصوير فوتوغرافي - منتجات</h3>
+                    <p>إخراج فني وجلسات تصوير للكوفيهات تركز على تفاصيل المنتج والجمالية.</p>
                 </div>
-                <a href="#" class="btn">معرض الصور</a>
+                <a href="#" class="btn">المعرض الفني</a>
             </div>
 
             <div class="project-card">
                 <div>
-                    <h3>لوجستيات التجارة الإلكترونية</h3>
-                    <p>تحليل وتحسين سلاسل الإمداد لدعم كفاءة المتاجر الرقمية.</p>
+                    <h3>التجارة الإلكترونية</h3>
+                    <p>مشاريع تحليل سلاسل الإمداد والدعم اللوجستي ضمن التخصص الجامعي.</p>
                 </div>
                 <a href="#" class="btn">التفاصيل</a>
             </div>
